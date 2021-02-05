@@ -1,7 +1,5 @@
 package com.company.libraryFinal.controller;
-
 import com.company.libraryFinal.entity.Storage;
-import com.company.libraryFinal.entity.User;
 import com.company.libraryFinal.repository.StorageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +18,16 @@ public class AdminController {
     private StorageRepository storageRepository;
 
     @GetMapping
-    public String getBookById(Model model, @PathVariable User user){
+    public String getAll(Model model){
         List<Storage> storages = storageRepository.findAll();
-        model.addAttribute("storage", storages);
+        model.addAttribute("storages", storages);
         return "adminCabinet";
+    }
+
+    @GetMapping("/storage/{id}")
+    public String getBookById(Model model, @PathVariable Long id){
+        Storage storage = storageRepository.findStorageById(id);
+        model.addAttribute("storage", storage);
+        return "storage";
     }
 }

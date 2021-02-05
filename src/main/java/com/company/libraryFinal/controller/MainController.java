@@ -28,8 +28,8 @@ public class MainController {
     @Autowired
     private BookRepository bookRepository;
 
-    @PostMapping
-    public String add(@RequestParam String name, @RequestParam String lname, Map<String, Object> model) {
+    @PostMapping("main/addBook")
+    public String addBook(@RequestParam String name, @RequestParam String lname, Map<String, Object> model) {
         if (!authorRepository.existsAuthorByLname(lname) && !bookRepository.existsBookByName(name)) {
             Book book = new Book(name);
             Author author = new Author(lname);
@@ -44,6 +44,28 @@ public class MainController {
             model.put("authors", authors);
             Iterable<Book> books = bookRepository.findAll();
             model.put("books", books);
+        }
+        return "main";
+    }
+
+    @PostMapping("main/addAuthor")
+    public String addAuthor(@RequestParam String fname, @RequestParam String lname, Map<String, Object> model) {
+        if (!authorRepository.existsAuthorByLname(lname)) {
+            Author author = new Author(lname, fname);
+            authorRepository.save(author);
+            Iterable<Author> authors = authorRepository.findAll();
+            model.put("authors", authors);
+        }
+        return "main";
+    }
+
+    @PostMapping("main/addGenre")
+    public String addGenre(@RequestParam String name, Map<String, Object> model) {
+        if (!genreRepository.existsGenreByName(name)){
+            Genre genre = new Genre(name);
+            genreRepository.save(genre);
+            Iterable<Genre> genres = genreRepository.findAll();
+            model.put("genres", genres);
         }
         return "main";
     }

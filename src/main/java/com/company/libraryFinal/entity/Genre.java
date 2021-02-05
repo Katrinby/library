@@ -18,6 +18,10 @@ public class Genre{
     public Genre() {
     }
 
+    public Genre(String name) {
+        this.name = name;
+    }
+
     public Genre(Long id, String name, List<Book> books) {
         this.id = id;
         this.name = name;

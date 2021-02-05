@@ -8,74 +8,148 @@
 <head>
     <title>Главная</title>
 </head>
-
 <style>
-    body {
+    .header {
+        font-style: italic;
+        background: lightpink;
+        text-align: center;
+        border-style: double;
+        padding: 7px;
+        border-width: 5px;
+        border-color: darkolivegreen;
+    }
+</style>
+<style>
+    .body {
 
         background: url("static/books2.jpg") repeat-y,
         /*#fc0*/ url("static/books2.jpg") repeat-y 100% 0;
         /*background-color: #CC99FF*/;
     }
-    header {
-        background: url("static/books2.jpg") repeat-y,
-        /*#fc0*/ url("static/books2.jpg") repeat-y 100% 0;
+    .header {
+        font-style: italic;
+        background: lightpink;
+        text-align: center;
+        border-style: double;
+        padding: 7px;
+        border-width: 5px;
+        border-color: darkolivegreen;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .hrefs{
+        display: flex;
+        justify-content: space-between;
+        margin: 10%;
+        border-style: none;
+        padding: 10px;
+    }
+    .logout{
+        text-align: right;
+        border-style: none;
+        margin: 5%;
+        padding: 5px;
+    }
+    .author{
+        width: 32%;
+        float: left;
+        min-height: 100%;
+        background: pink;
+        border-style: double;
+        padding: 5px;
+        border-width: 5px;
+        border-color: darkolivegreen;
+    }
+    .book{
+        width: 32%;
+        min-height: 100%;
+        float: left;
+        background: pink;
+        border-style: double;
+        padding: 5px;
+        border-width: 5px;
+        border-color: darkolivegreen;
+    }
+    .genre{
+        width: 32%;
+        min-height: 100%;
+        float: left;
+        background: pink;
+        border-style: double;
+        padding: 5px;
+        border-width: 5px;
+        border-color: darkolivegreen;
     }
 </style>
 
 <body>
-<%--<div><img src="static/books2.jpg"/></div>--%>
+
 <div class="header"><h1>Библиотека</h1></div>
 
-<div>
+<div class="content">
+    <div class="author">
+        <h3>Найти автора: </h3>
     <form method="GET" action="/author/search">
         <div>
             <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="lname" type="text" placeholder="lname" autofocus="true"/>
-            <button type="submit">найти автора</button>
+            <button type="submit">найти</button>
         </div>
     </form>
-</div>
+        <div>
+            <h3>Добавить нового автора</h3>
+            <form method="post" enctype="multipart/form-data" action="/main/addAuthor">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="fname" placeholder="Введите имя" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="lname" placeholder="Введите фамилию" />
+                </div>
+                <input type="hidden" name="_csrf" value="_csrf.token" />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<div>
+    <div class="book">
+        <h3>Найти книгу: </h3>
     <form method="GET" action="/book/search">
         <div>
             <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="name" type="text" placeholder="name" autofocus="true"/>
-            <button type="submit">найти книгу</button>
+            <button type="submit">найти</button>
         </div>
     </form>
-</div>
+        <h3>Добавить новую книгу</h3>
+    <form method="post" enctype="multipart/form-data" action="/main/addBook">
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Введите название книги" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="lname" placeholder="Введите фамилию автора" />
+        </div>
+        <input type="hidden" name="_csrf" value="_csrf.token" />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+    </div>
 
-<h2>Список жанров: </h2>
-<c:forEach var="genre" items="${genres}">
-    <h3><a href="/genre/${genre.id}">${genre.name}</a></h3>
-</c:forEach>
-
-<form action="/logout" method="post">
-    <input type="hidden" name="_csrf" value="_csrf.token">
-    <input type="submit" value="Sign Out"/>
-</form>
-
-<%--<form action="/user" method="post">
-    <input type="hidden" name="_csrf" value="_csrf.token">
-    <input type="submit" value="Личный кабинет"/>
-</form>--%>
-
-<%--<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Add new Book
-</a>--%>
-Add new Book
-<div class="collapse" id="collapseExample">
-    <div class="form-group mt-3">
-        <form method="post" enctype="multipart/form-data">
+    <div class="genre">
+        <h3>Список жанров: </h3>
+        <c:forEach var="genre" items="${genres}">
+            <h3><a href="/genre/${genre.id}">${genre.name}</a></h3>
+        </c:forEach>
+        <h3>Добавить новый жанр</h3>
+        <form method="post" enctype="multipart/form-data" action="/main/addGenre">
             <div class="form-group">
                 <input type="text" class="form-control" name="name" placeholder="Введите название" />
-            </div>
-            <%--<div class="form-group">
-                <input type="text" class="form-control" name="genre" placeholder="жанр">
-            </div>--%>
-            <div class="form-group">
-                <input type="text" class="form-control" name="lname" placeholder="фамилию автора" />
             </div>
             <input type="hidden" name="_csrf" value="_csrf.token" />
             <div class="form-group">
@@ -83,19 +157,21 @@ Add new Book
             </div>
         </form>
     </div>
+
 </div>
 
-    <a href="login.jsp">Авторизация</a>
-    <a href="registration.jsp">Регистрация</a>
+<div class="hrefs">
+    <a href="/login">Авторизация</a>
+    <a href="/registration">Регистрация</a>
     <a href="/user">Личный кабинет</a>
-<%--<c:if test="user.role=USER">
-<a href="userCabinet.jsp">Личный кабинет</a>
-</c:if>
-<c:if test="user.role=ADMIN">
-    <a href="adminCabinet.jsp">Личный кабинет</a>
-</c:if>--%><%--это работоспособно?--%>
-<%--Сделать дополнительную страницу с результатами поиска
-для авторов с одинаковыми фамилиями и книг с одинаковыми названиями--%>
+</div>
+
+<div class="logout">
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="_csrf.token">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 
 </body>
 </html>

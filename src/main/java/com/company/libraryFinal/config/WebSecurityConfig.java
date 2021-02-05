@@ -26,8 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers( "/genre/{genreId}","/book/search","/author/search",
                         "/storage","/userCabinet","/adminCabinet","/book",
-                        "/author","/genre", "/searchResults", "/registration").permitAll()
-                .antMatchers("/main").authenticated()
+                        "/author","/genre", "/searchResults", "/registration", "/main").permitAll()
+                //.antMatchers("/main").authenticated()
                 .and()
                 .formLogin().loginPage("/login").loginProcessingUrl("/loginUser").permitAll()
                 .defaultSuccessUrl("/main")

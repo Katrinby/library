@@ -32,7 +32,7 @@ public class Author {
     }
 
     public Author(String fname, String lname) {
-        this.lname = fname;
+        this.fname = fname;
         this.lname = lname;
 
     }
