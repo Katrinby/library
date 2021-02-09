@@ -9,86 +9,156 @@
     <title>Главная</title>
 </head>
 <style>
-    .header {
-        font-style: italic;
-        background: lightpink;
-        text-align: center;
-        border-style: double;
-        padding: 7px;
-        border-width: 5px;
-        border-color: darkolivegreen;
-    }
-</style>
-<style>
-    .body {
 
-        background: url("static/books2.jpg") repeat-y,
-        /*#fc0*/ url("static/books2.jpg") repeat-y 100% 0;
-        /*background-color: #CC99FF*/;
+    body {
+        background-image: url('../../resources/static/book.jpg');
     }
     .header {
-        font-style: italic;
-        background: lightpink;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        backdrop-filter: blur(4px);
+        background: rgba(255,255,255,0.4);
         border-style: double;
-        padding: 7px;
+        padding: 5px;
+        margin: 10px;
         border-width: 5px;
-        border-color: darkolivegreen;
+        border-color: darkcyan;
+        border-radius: 10px;
     }
-
+    h1{
+        width: 70%;
+        float: left;
+        min-height: 100%;
+        font-family: Monotype Corsiva, Chiller, cursive;
+        font-style: italic;
+        text-align: center;
+        cursor: default;
+        font-size: 35px;
+    }
     .content {
         display: flex;
         justify-content: space-between;
-
     }
     .hrefs{
-        display: flex;
+        text-align: center;
+        float: right;
         justify-content: space-between;
-        margin: 10%;
-        border-style: none;
-        padding: 10px;
+        width: 20%;
+        min-height: 100%;
+        cursor: default;
+        font-family: Monotype Corsiva, Chiller, cursive;}
+    .button{
+        border: 3px #c7959e solid;
+        margin: 15px;
+        padding: 3px;
+        border-radius: 10px;
+        cursor: pointer;
+        background: #f5e1ce;
+        font-size: 20px;
+        font-family: Monotype Corsiva, Chiller, cursive;
     }
-    .logout{
-        text-align: right;
-        border-style: none;
-        margin: 5%;
-        padding: 5px;
+    .button:hover{
+        border: 3px #cf6b7e solid;
+        background: #f5e1ce;
     }
     .author{
         width: 32%;
         float: left;
         min-height: 100%;
-        background: pink;
+        backdrop-filter: blur(4px);
+        background: rgba(255,255,255,0.4);
         border-style: double;
         padding: 5px;
+        margin: 10px;
         border-width: 5px;
-        border-color: darkolivegreen;
+        border-color: darkcyan;
+        border-radius: 10px;
+        cursor: default;
+        font-family: Monotype Corsiva, Chiller, cursive;
     }
     .book{
         width: 32%;
         min-height: 100%;
         float: left;
-        background: pink;
+        backdrop-filter: blur(4px);
+        background: rgba(255,255,255,0.4);
         border-style: double;
         padding: 5px;
+        margin: 10px;
         border-width: 5px;
-        border-color: darkolivegreen;
+        border-color: darkcyan;
+        border-radius: 10px;
+        cursor: default;
+        font-family: Monotype Corsiva, Chiller, cursive;
     }
     .genre{
         width: 32%;
         min-height: 100%;
         float: left;
-        background: pink;
+        backdrop-filter: blur(4px);
+        background: rgba(255,255,255,0.4);
         border-style: double;
         padding: 5px;
+        margin: 10px;
         border-width: 5px;
-        border-color: darkolivegreen;
+        border-color: darkcyan;
+        border-radius: 10px;
+        cursor: default;
+        font-family: Monotype Corsiva, Chiller, cursive;
+    }
+    h3{
+        font-size: 20px;
+    }
+    input[type=text] {
+        padding:10px;
+        margin: 10px;
+        border:0;
+        width:200px;
+        border-radius:10px;
+        cursor: text;
+        font-size: 20px;
+        font-family: Monotype Corsiva, Chiller, cursive;
+    }
+    a:link {
+        color: darkcyan;
+        font-size: 20px;
+        text-decoration: none;
+        font-family: Monotype Corsiva, Chiller, cursive;
+    }
+    a:visited {
+        color: darkslategrey;
+        text-decoration: none;
+    }
+    a:hover {
+        color: darkslategrey;
+        text-decoration: none;
+    }
+    a:active {
+        color: darkslategrey;
+        text-decoration: none;
     }
 </style>
 
 <body>
-
-<div class="header"><h1>Библиотека</h1></div>
+<div class="header">
+    <h1>Библиотека</h1>
+    <div class="hrefs">
+        <div class="button">
+            <a href="/login">Авторизация</a>
+        </div>
+        <div class="button">
+            <a href="/registration">Регистрация</a>
+        </div>
+        <div class="button">
+            <a href="/user">Личный кабинет</a>
+        </div>
+        <div>
+            <form action="/logout" method="post" >
+                <button type="submit" class="button">Sign Out</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="content">
     <div class="author">
@@ -97,7 +167,7 @@
         <div>
             <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="lname" type="text" placeholder="lname" autofocus="true"/>
-            <button type="submit">найти</button>
+            <button type="submit" class="button">найти</button>
         </div>
     </form>
         <div>
@@ -111,7 +181,7 @@
                 </div>
                 <input type="hidden" name="_csrf" value="_csrf.token" />
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <button type="submit" class="button">Добавить</button>
                 </div>
             </form>
         </div>
@@ -123,7 +193,7 @@
         <div>
             <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="name" type="text" placeholder="name" autofocus="true"/>
-            <button type="submit">найти</button>
+            <button type="submit" class="button">найти</button>
         </div>
     </form>
         <h3>Добавить новую книгу</h3>
@@ -136,7 +206,7 @@
         </div>
         <input type="hidden" name="_csrf" value="_csrf.token" />
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Добавить</button>
+            <button type="submit" class="button">Добавить</button>
         </div>
     </form>
     </div>
@@ -153,25 +223,35 @@
             </div>
             <input type="hidden" name="_csrf" value="_csrf.token" />
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Добавить</button>
+                <button type="submit" class="button">Добавить</button>
             </div>
         </form>
     </div>
 
 </div>
 
-<div class="hrefs">
+<%--<div class="hrefs">
+    <div class="button">
     <a href="/login">Авторизация</a>
+    </div>
+    <div class="button">
     <a href="/registration">Регистрация</a>
+    </div>
+    <div class="button">
     <a href="/user">Личный кабинет</a>
-</div>
+    </div>
+    <div>
+        <form action="/logout" method="post" >
+            <button type="submit" class="button">Sign Out</button>
+        </form>
+    </div>
+</div>--%>
 
-<div class="logout">
-    <form action="/logout" method="post">
-        <input type="hidden" name="_csrf" value="_csrf.token">
-        <input type="submit" value="Sign Out"/>
+<%--<div class="logout">
+    <form action="/logout" method="post" >
+            <button type="submit" class="button">Sign Out</button>
     </form>
-</div>
+</div>--%>
 
 </body>
 </html>

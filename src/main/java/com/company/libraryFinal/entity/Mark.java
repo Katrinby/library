@@ -18,6 +18,13 @@ public class Mark {
 
     private Integer mark;
 
+    public Mark(Integer mark) {
+        this.mark = mark;
+    }
+
+    public Mark() {
+    }
+
     public Long getId() {
         return id;
     }

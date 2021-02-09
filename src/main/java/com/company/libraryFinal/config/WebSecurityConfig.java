@@ -21,12 +21,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("etxetdtr");
         http
                 .authorizeRequests()
                 .antMatchers( "/genre/{genreId}","/book/search","/author/search",
                         "/storage","/userCabinet","/adminCabinet","/book",
-                        "/author","/genre", "/searchResults", "/registration", "/main").permitAll()
+                        "/author","/genre", "/searchResults", "/registration", "/main", "/resources/**").permitAll()
                 //.antMatchers("/main").authenticated()
                 .and()
                 .formLogin().loginPage("/login").loginProcessingUrl("/loginUser").permitAll()
