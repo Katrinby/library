@@ -71,31 +71,29 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
-        text-decoration: none;
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:hover {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:active {
         color: darkslategrey;
-        text-decoration: none;
     }
 </style>
 <body>
 <div class="header">
-    <h1>Личный кабинет</h1>
-    <div class="button">
-        <a href="/main">Главная</a>
+    <h1>${user.username} Личный кабинет</h1>
+    <div>
+        <form action="/main" method="get" >
+            <button type="submit" class="button">Главная</button>
+        </form>
     </div>
 </div>
 +информация о пользователе из User_info(после решения проблем с логином)
-
+${user.username}
 <div class="content">
     <%--${user.name}--%>
         <h2>Список книг на рассмотрении: </h2>

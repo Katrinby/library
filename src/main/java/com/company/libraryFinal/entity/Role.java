@@ -1,36 +1,41 @@
 package com.company.libraryFinal.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
 @Table(name = "role")
-public class Role /*implements GrantedAuthority*/ {
+public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String role;
     @Transient
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
     public Role() {
     }
 
-    public Role(Long id, String name, List<User> users) {
+    public Role(Long id, String role, List<User> users) {
         this.id = id;
-        this.name = name;
+        this.role = role;
         this.users = users;
     }
 
-   /* @Override
+    @Override
     public String getAuthority() { return getName();
     }
-*/
-    public Role(Long id, String name) {
+
+    public Role(Long id, String role) {
         this.id = id;
-        this.name = name;
+        this.role = role;
     }
+
 
     public Long getId() {
         return id;
@@ -41,11 +46,11 @@ public class Role /*implements GrantedAuthority*/ {
     }
 
     public String getName() {
-        return name;
+        return role;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.role = name;
     }
 
     public List<User> getUsers() {

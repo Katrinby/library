@@ -48,6 +48,8 @@
         cursor: default;
         font-family: Monotype Corsiva, Chiller, cursive;}
     .button{
+        width: 200px;
+        height: 35px;
         border: 3px #c7959e solid;
         margin: 15px;
         padding: 3px;
@@ -122,20 +124,16 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
-        text-decoration: none;
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:hover {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:active {
         color: darkslategrey;
-        text-decoration: none;
     }
 </style>
 
@@ -143,14 +141,28 @@
 <div class="header">
     <h1>Библиотека</h1>
     <div class="hrefs">
-        <div class="button">
-            <a href="/login">Авторизация</a>
+
+        <div>
+            <form action="/login" method="get" >
+                <button type="submit" class="button">Авторизация</button>
+            </form>
         </div>
-        <div class="button">
-            <a href="/registration">Регистрация</a>
+
+        <div>
+            <form action="/registration" method="get" >
+                <button type="submit" class="button">Регистрация</button>
+            </form>
         </div>
-        <div class="button">
-            <a href="/user">Личный кабинет</a>
+
+        <div>
+            <form action="/user" method="get" >
+                <button type="submit" class="button">кабинет пользователя</button>
+            </form>
+        </div>
+        <div>
+            <form action="/admin" method="get" >
+                <button type="submit" class="button">кабинет админа</button>
+            </form>
         </div>
         <div>
             <form action="/logout" method="post" >
@@ -229,29 +241,6 @@
     </div>
 
 </div>
-
-<%--<div class="hrefs">
-    <div class="button">
-    <a href="/login">Авторизация</a>
-    </div>
-    <div class="button">
-    <a href="/registration">Регистрация</a>
-    </div>
-    <div class="button">
-    <a href="/user">Личный кабинет</a>
-    </div>
-    <div>
-        <form action="/logout" method="post" >
-            <button type="submit" class="button">Sign Out</button>
-        </form>
-    </div>
-</div>--%>
-
-<%--<div class="logout">
-    <form action="/logout" method="post" >
-            <button type="submit" class="button">Sign Out</button>
-    </form>
-</div>--%>
 
 </body>
 </html>

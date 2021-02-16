@@ -1,8 +1,10 @@
 package com.company.libraryFinal.controller;
 
 import com.company.libraryFinal.entity.Storage;
+import com.company.libraryFinal.entity.User;
 import com.company.libraryFinal.repository.StorageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +21,14 @@ public class UserController {
     private StorageRepository storageRepository;
 
     @GetMapping
-    public String getAll(Model model){
+    public String getAll(Model model, @AuthenticationPrincipal User user){
         List<Storage> storages = storageRepository.findAll();
         model.addAttribute("storages", storages);
+        model.addAttribute("user", user);
         return "userCabinet";
     }
+
+
 
     @GetMapping("/storage/{id}")
     public String getBookById(Model model, @PathVariable Long id){

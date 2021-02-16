@@ -27,19 +27,38 @@
         font-size: 20px;
     }
     .content{
-        width: 32%;
+        /*width: 32%;*/
+        font-size: 20px;
         float: left;
-        min-height: 100%;
+        min-height: 35%;
         backdrop-filter: blur(4px);
         background: rgba(255,255,255,0.4);
         border-style: double;
         padding: 5px;
-        margin: 10px;
+        /*margin: 10px;*/
         border-width: 5px;
         border-color: darkcyan;
         border-radius: 10px;
         cursor: default;
         font-family: Monotype Corsiva, Chiller, cursive;
+
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        margin: -125px 0 0 -125px;
+    }
+
+    .center{
+
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 175px;
+        left: 0;
+        overflow: auto;
+
     }
     .button{
         text-align: center;
@@ -79,39 +98,41 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
-        text-decoration: none;
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:hover {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:active {
         color: darkslategrey;
-        text-decoration: none;
     }
 </style>
 <body>
 <div class="header">
-    <h1>Аторизация</h1>
-    <div class="button">
-        <a href="/main">Главная</a>
+    <h1>Авторизация</h1>
+    <div>
+        <form action="/main" method="get" >
+            <button type="submit" class="button">Главная</button>
+        </form>
     </div>
-    <div class="button">
-        <a href="/registration">Регистрация</a>
+    <div>
+        <form action="/registration" method="get" >
+            <button type="submit" class="button">Регистрация</button>
+        </form>
     </div>
 </div>
+
+<div class="center">
 <div class="content">
-<form action="/loginUser" method="post">
+<form action="/login" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
-    <%--<input type="hidden" name="_csrf" value="_csrf.token" />--%>
     <button type="submit" class="button">Log in</button>
 </form>
+</div>
 </div>
 </body>
 </html>

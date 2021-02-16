@@ -26,6 +26,7 @@
         font-size: 20px;
     }
     .content{
+        font-size: 20px;
         width: 32%;
         float: left;
         min-height: 100%;
@@ -68,27 +69,25 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
-        text-decoration: none;
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:hover {
         color: darkslategrey;
-        text-decoration: none;
     }
     a:active {
         color: darkslategrey;
-        text-decoration: none;
     }
 </style>
 <body>
 <div class="header">
     <h1>${storage.name}</h1>
-    <div class="button">
-        <a href="/main">Главная</a>
+    <div>
+        <form action="/main" method="get" >
+            <button type="submit" class="button">Главная</button>
+        </form>
     </div>
 </div>
 <div class="content">
