@@ -3,8 +3,10 @@ import com.company.libraryFinal.entity.Author;
 import com.company.libraryFinal.entity.Book;
 import com.company.libraryFinal.entity.Mark;
 import com.company.libraryFinal.repository.BookRepository;
+import com.company.libraryFinal.repository.MarkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +19,23 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private MarkRepository markRepository;
+
     @GetMapping("/{bookId}")
     public String getBookById(Model model, @PathVariable Long bookId){
         Book book = bookRepository.findBookById(bookId);
         model.addAttribute("book", book);
+        return "book";
+    }
+
+    @PostMapping("/chooseMark")
+            public String chooseMark(Model model, @PathVariable Integer mark)
+    {
+        Mark newMark = new Mark(mark);
+        markRepository.save(newMark);
+        Iterable<Mark> marks = markRepository.findAll();
+        model.addAttribute("newMark", newMark);
         return "book";
     }
 

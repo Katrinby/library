@@ -19,6 +19,11 @@ public class Mark {
     private Integer mark;
 
     public Mark(Integer mark) {
+        if (mark>5){
+            mark=5;
+        } else if (mark<0){
+            mark=1;
+        }
         this.mark = mark;
     }
 
@@ -54,6 +59,11 @@ public class Mark {
     }
 
     public void setMark(Integer mark) {
+        if (mark>5){
+            mark=5;
+        } else if (mark<0){
+            mark=1;
+        }
         this.mark = mark;
     }
 }

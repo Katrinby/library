@@ -85,17 +85,18 @@
 </style>
 <body>
 <div class="header">
-    <h1>${user.username} Личный кабинет</h1>
+    <h1>Личный кабинет пользователя ${user.username}</h1>
     <div>
         <form action="/main" method="get" >
             <button type="submit" class="button">Главная</button>
         </form>
     </div>
 </div>
-+информация о пользователе из User_info(после решения проблем с логином)
-${user.username}
 <div class="content">
-    <%--${user.name}--%>
+        <h1> Информация о пользователе: </h1>
+        <h2> Дата рождения: ${user.userInfo.dateBirth}</h2>
+        <h2> Имя: ${user.userInfo.fname}</h2>
+        <h2> Фамилия: ${user.userInfo.lname}</h2>
         <h2>Список книг на рассмотрении: </h2>
         <c:forEach var="storage" items="${storages}">
             <h3> <a href="/user/storage/${storage.id}">${storage.name}</a></h3>

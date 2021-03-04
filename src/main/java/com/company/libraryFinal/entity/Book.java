@@ -1,6 +1,7 @@
 package com.company.libraryFinal.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Book {
     private List<Author> authors;
 
     @ManyToOne
-    @JoinColumn(name = "book_series_id", insertable = false, updatable = false)
+    @JoinColumn(name = "book_series_id"/*, insertable = false, updatable = false*/)
     private BookSeries bookSeries;
 
     @ManyToMany(mappedBy = "books")
@@ -39,6 +40,9 @@ public class Book {
     private List<Mark> mark;
 
     public List<Comment> getComment() {
+        if (comment == null) {
+            comment = new ArrayList<>();
+        }
         return comment;
     }
 
@@ -53,6 +57,13 @@ public class Book {
         this.name = name;
     }
 
+    public Book(String name, String publishingHouse, Date publishingDate, String description) {
+        this.name = name;
+        this.publishingHouse = publishingHouse;
+        this.publishingDate = publishingDate;
+        this.description = description;
+    }
+
     public Book(Long id, String name, List<User> users, List<Author> authors, BookSeries bookseries, List<Genre> genre) {
         this.id = id;
         this.name = name;
@@ -62,8 +73,29 @@ public class Book {
         this.genre = genre;
     }
 
+    public Book(String name, String publishingHouse, Date publishingDate,
+                String description, BookSeries bookSeries) {
+        this.name = name;
+        this.publishingHouse = publishingHouse;
+        this.publishingDate = publishingDate;
+        this.description = description;
+        this.bookSeries = bookSeries;
+
+    }
+
     public List<Mark> getMark() {
+        if (mark == null) {
+            mark = new ArrayList<>();
+        }
         return mark;
+    }
+
+    public BookSeries getBookSeries() {
+        return bookSeries;
+    }
+
+    public void setBookSeries(BookSeries bookSeries) {
+        this.bookSeries = bookSeries;
     }
 
     public void setMark(List<Mark> mark) {
@@ -95,6 +127,9 @@ public class Book {
     }
 
     public List<Author> getAuthors() {
+        if (authors == null) {
+            authors = new ArrayList<>();
+        }
         return authors;
     }
 
@@ -103,6 +138,9 @@ public class Book {
     }
 
     public List<Genre> getGenre() {
+        if (genre == null) {
+            genre = new ArrayList<>();
+        }
         return genre;
     }
 

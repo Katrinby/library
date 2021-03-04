@@ -17,9 +17,14 @@ public class BookSeries {
     public BookSeries() {
     }
 
-    public BookSeries(Long id, Set<Book> books) {
+    public BookSeries(String name, Long id, Set<Book> books) {
         this.id = id;
+        this.name = name;
         this.books = books;
+    }
+
+    public BookSeries(String name) {
+        this.name = name;
     }
 
     public Long getId() {

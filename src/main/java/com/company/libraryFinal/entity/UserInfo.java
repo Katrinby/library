@@ -14,7 +14,7 @@ public class UserInfo {
 
     private String fname;
 
-    private Date date_birth;
+    private Date dateBirth;
 
     @OneToOne(mappedBy = "userInfo")
     private User user;
@@ -51,11 +51,21 @@ public class UserInfo {
         this.fname = fname;
     }
 
-    public Date getDate_birth() {
-        return date_birth;
+    public Date getDateBirth() {
+        return dateBirth;
     }
 
-    public void setDate_birth(Date date_birth) {
-        this.date_birth = date_birth;
+    public void setDateBirth(Date date_birth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public UserInfo() {
+    }
+
+    public UserInfo(String lname, String fname, Date dateBirth, User user) {
+        this.lname = lname;
+        this.fname = fname;
+        this.dateBirth = dateBirth;
+        this.user = user;
     }
 }

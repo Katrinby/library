@@ -2,9 +2,12 @@ package com.company.libraryFinal.controller;
 
 
 import com.company.libraryFinal.entity.User;
+import com.company.libraryFinal.entity.UserInfo;
 import com.company.libraryFinal.repository.RoleRepository;
+import com.company.libraryFinal.repository.UserInfoRepository;
 import com.company.libraryFinal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -27,13 +31,12 @@ public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private UserInfoRepository userInfoRepository;
+    @Autowired
     private RoleRepository roleRepository;
 
     @Resource(name = "pencoder")
     private PasswordEncoder passwordEncoder;
-
-   /* @Autowired
-    private AuthenticationManager authenticationManager;*/
 
     @GetMapping("/registration")
     public String registration() {
@@ -41,16 +44,21 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Map<String, Object> model,@RequestParam String username, @RequestParam String password) {
+    public String addUser(Map<String, Object> model, @RequestParam String username, @RequestParam String password,
+                          @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateBirth, @RequestParam String fname, @RequestParam String lname) {
         User userFromDb = userRepository.findByUsername(username);
         if (userFromDb != null) {
             model.put("message", "User exists!");
             return "registration";
         }
+
         User user = new User(username, password);
+        UserInfo userInfo = new UserInfo(lname, fname, dateBirth, user);
+        user.setUserInfo(userInfo);
         user.setActive(true);
         user.setRoles(Collections.singleton(roleRepository.findByRole("USER")));
         userRepository.save(user);
+        userInfoRepository.save(userInfo);
 
         return "redirect:/login";
     }
@@ -60,17 +68,4 @@ public class RegistrationController {
         return "login";
     }
 
-    /*@PostMapping("/loginUser")
-    public String login(Map<String, Object> model, @RequestParam String username, @RequestParam String password) {
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            model.put("message", "User is not exists!");
-            return "login";
-        }
-        if(!passwordEncoder.matches(password,user.getPassword())){
-            model.put("message", "Wrong password!");
-            return "login";
-        }
-        return "redirect:/main";
-    }*/
 }

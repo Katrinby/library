@@ -99,7 +99,14 @@
         <h4>Дата рождения: ${author.dateBirth}</h4>
     </c:forEach>
 </div>
-<div>Оценить</div>
+<div>Оцените книгу: </div>
+
+<select name="mark" size="1">
+    <c:forEach begin="1" end="5" varStatus="num">
+        <option>${num.index} </option>
+    </c:forEach>
+</select>
+</div>
 <div>Средняя оценка</div>
 <div>Добавить комментарий</div>
 <div>Комментарии</div>

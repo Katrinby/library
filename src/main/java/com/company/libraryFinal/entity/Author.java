@@ -1,6 +1,7 @@
 package com.company.libraryFinal.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -76,6 +77,9 @@ public class Author {
     }
 
     public List<Book> getBooks() {
+        if (books == null) {
+            books = new ArrayList<>();
+        }
         return books;
     }
 

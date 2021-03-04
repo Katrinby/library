@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationService authenticationService;
 
     @Bean
-    protected DaoAuthenticationProvider getAuthenticationProvider(){
+    protected DaoAuthenticationProvider getAuthenticationProvider() {
         DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
         dao.setPasswordEncoder(passwordEncoder());
         dao.setUserDetailsService(userDetailsService());
@@ -40,28 +40,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(5);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        http.csrf().disable();
         http
                 .authorizeRequests()
                 .antMatchers("/registration", "/resources/**", "/login", "/loginUser").permitAll()
-                .antMatchers("/admin").hasAnyRole("ADMIN")
+                //.antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/main")
                 .and()
-                .csrf().disable()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
 
     }

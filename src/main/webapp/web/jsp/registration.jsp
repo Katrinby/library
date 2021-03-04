@@ -42,9 +42,9 @@
         font-family: Monotype Corsiva, Chiller, cursive;
 
         width: 250px;
-        height: 250px;
+        height: 150px;
         position: absolute;
-        top: 25%;
+        top: 10%;
         left: 50%;
         margin: -125px 0 0 -125px;
     }
@@ -87,7 +87,7 @@
     .center{
 
         width: 100%;
-        height: 100%;
+        height: 200%;
         position: absolute;
         top: 175px;
         left: 0;
@@ -120,8 +120,11 @@
 <div class="center">
 <div class="content">
 <form action="/registration" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><label> Логин: <input type="text" name="username"/> </label></div>
+    <div><label> Пароль: <input type="password" name="password"/> </label></div>
+    <div><label> Имя : <input type="text" name="lname"/> </label></div>
+    <div><label> Фамилия : <input type="text" name="fname"/> </label></div>
+    <div><label> Дата рождения : <input type="text" name="dateBirth"/> </label></div>
     <button type="submit" class="button">Зарегистрироваться</button>
 </form>
 </div>

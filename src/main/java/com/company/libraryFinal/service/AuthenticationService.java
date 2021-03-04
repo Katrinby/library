@@ -22,7 +22,7 @@ public class AuthenticationService implements UserDetailsService {
             if (user==null){
                 throw new UsernameNotFoundException("Username not found");
             }
-        System.out.println("qwert");
+        //System.out.println("qwert");
        // return UserSecurity.fromUser(user);
         return UserSecurity.fromUser(user);
     }

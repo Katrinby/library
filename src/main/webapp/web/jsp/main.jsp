@@ -177,7 +177,6 @@
         <h3>Найти автора: </h3>
     <form method="GET" action="/author/search">
         <div>
-            <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="lname" type="text" placeholder="lname" autofocus="true"/>
             <button type="submit" class="button">найти</button>
         </div>
@@ -191,7 +190,6 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="lname" placeholder="Введите фамилию" />
                 </div>
-                <input type="hidden" name="_csrf" value="_csrf.token" />
                 <div class="form-group">
                     <button type="submit" class="button">Добавить</button>
                 </div>
@@ -203,20 +201,35 @@
         <h3>Найти книгу: </h3>
     <form method="GET" action="/book/search">
         <div>
-            <input type="hidden" name="_csrf" value="_csrf.token">
             <input name="name" type="text" placeholder="name" autofocus="true"/>
             <button type="submit" class="button">найти</button>
         </div>
     </form>
         <h3>Добавить новую книгу</h3>
     <form method="post" enctype="multipart/form-data" action="/main/addBook">
+
         <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Введите название книги" />
         </div>
         <div class="form-group">
             <input type="text" class="form-control" name="lname" placeholder="Введите фамилию автора" />
         </div>
-        <input type="hidden" name="_csrf" value="_csrf.token" />
+        <div class="form-group">
+            <input type="text" class="form-control" name="publishingHouse" placeholder="publishingHouse" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="publishingDate" placeholder="publishingDate" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="description" placeholder="description" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="bookSeriesName" placeholder="bookSeriesName" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="genre" placeholder="genre" />
+        </div>
+
         <div class="form-group">
             <button type="submit" class="button">Добавить</button>
         </div>
@@ -233,7 +246,6 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="name" placeholder="Введите название" />
             </div>
-            <input type="hidden" name="_csrf" value="_csrf.token" />
             <div class="form-group">
                 <button type="submit" class="button">Добавить</button>
             </div>
