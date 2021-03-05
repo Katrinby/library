@@ -18,6 +18,15 @@ public class Comment {
 
     private String text;
 
+    public Comment() {
+    }
+
+    public Comment(Book book, User user, String text) {
+        this.book = book;
+        this.user = user;
+        this.text = text;
+    }
+
     public Long getId() {
         return id;
     }

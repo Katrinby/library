@@ -118,8 +118,22 @@
         ${avg}
     </form>
 </div>
-<div>Добавить комментарий</div>
-<div>Комментарии</div>
+<div>Добавить комментарий
+    <form method="get" enctype="multipart/form-data" action="/book/${book.id}/addComment">
+        <div class="form-group">
+            <input type="text" class="form-control" name="text" placeholder="Введите комментарий" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">Добавить</button>
+        </div>
+    </form>
+</div>
+<div>Комментарии
+    <c:forEach var="comment" items="${comments}">
+        <h2>${comment.text}</h2>
+        <h3>${user.username}</h3>
+    </c:forEach>
+</div>
 <div>Читать
     <form method="get" enctype="multipart/form-data" action="/book/${book.id}/read">
         <div class="form-group">

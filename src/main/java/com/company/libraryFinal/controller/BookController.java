@@ -1,12 +1,6 @@
 package com.company.libraryFinal.controller;
-import com.company.libraryFinal.entity.Book;
-import com.company.libraryFinal.entity.BookSeries;
-import com.company.libraryFinal.entity.Mark;
-import com.company.libraryFinal.entity.User;
-import com.company.libraryFinal.repository.BookRepository;
-import com.company.libraryFinal.repository.BookSeriesRepository;
-import com.company.libraryFinal.repository.MarkRepository;
-import com.company.libraryFinal.repository.UserRepository;
+import com.company.libraryFinal.entity.*;
+import com.company.libraryFinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,17 +21,25 @@ public class BookController {
     private MarkRepository markRepository;
 
     @Autowired
+    private CommentRepository commentRepository;
+
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private BookSeriesRepository bookSeriesRepository;
 
     @GetMapping("/{bookId}")//todo придумать, что писать, если оценок еще нет(ноль может сбить с толку, хотя токой оценки и не существует)
-    public String getBookById(Model model, @PathVariable Long bookId){
+    public String getBookById(Model model, @PathVariable Long bookId, @AuthenticationPrincipal Authentication auth){
         Book book = bookRepository.findBookById(bookId);
         model.addAttribute("book", book);
         BookSeries bookSeries = bookSeriesRepository.findBookSeriesByBooks(book);
         model.addAttribute("bookSeries", bookSeries);
+        List<Comment> comments = commentRepository.findAllByBookId(bookId);
+        model.addAttribute("comments", comments);
+        User user = userRepository.findByUsername(auth.getName());
+        model.addAttribute("user", user);
         markRepository.findAllByBookId(bookId);
         List<Mark> numbers = markRepository.findMarksByBookId(bookId);
         double counter = 0;
@@ -77,6 +79,17 @@ public class BookController {
         markRepository.save(mark);
         Iterable<Mark> marks = markRepository.findAll();
         model.addAttribute("marks", marks);
+        return "redirect:/book/"+bookId;
+    }
+
+    @GetMapping("/{bookId}/addComment")
+    public String addComment(Model model, @RequestParam String text,  @AuthenticationPrincipal Authentication auth, @PathVariable Long bookId)
+    {//todo сделать ограничение на количество символов и подобрать размер окна ввода
+        Book book = bookRepository.findBookById(bookId);
+        User user = userRepository.findByUsername(auth.getName());
+        Comment comment = new Comment(book, user, text);
+        commentRepository.save(comment);
+        model.addAttribute("comment", comment);
         return "redirect:/book/"+bookId;
     }
 
