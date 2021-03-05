@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Страница книги</title>
+    <title>Серия книг</title>
 </head>
 <style>
     body {
@@ -26,7 +26,8 @@
         font-size: 20px;
     }
     .content{
-        width: 32%;
+        font-size: 20px;
+        width: 50%;
         float: left;
         min-height: 100%;
         backdrop-filter: blur(4px);
@@ -68,21 +69,25 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
+        /*text-decoration: none;*/
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
+        /*text-decoration: none;*/
     }
     a:hover {
         color: darkslategrey;
+        /* text-decoration: none;*/
     }
     a:active {
         color: darkslategrey;
+        /*text-decoration: none;*/
     }
 </style>
 <body>
 <div class="header">
-    <h1>${book.name}</h1>
+    <h1>${bookSeries.name}</h1>
     <div>
         <form action="/main" method="get" >
             <button type="submit" class="button">Главная</button>
@@ -90,42 +95,10 @@
     </div>
 </div>
 <div class="content">
-       <h2> Издательство: ${book.publishingHouse}</h2>
-       <h2> Серия: <a href="/bookSeries/${bookSeries.id}">${bookSeries.name}</a></h2>
-       <h2> Дата публикации: ${book.publishingDate}</h2>
-       <h2> Описание книги: ${book.description}</h2>
-       <h2>Автор(ы) книги:</h2>
-    <c:forEach var="author" items="${book.authors}">
-        <h3>Имя: <a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h3>Дата рождения: ${author.dateBirth}</h3>
+    <c:forEach var="book" items="${bookSeries.books}">
+        <h3>Название: <a href="/book/${book.id}">${book.name}</a></h3>
+        <h3>Описание: ${book.description}</h3>
     </c:forEach>
-
-</div>
-<div>Оцените книгу:
-<form method="get" enctype="multipart/form-data" action="/book/${book.id}/chooseMark">
-<select id="dropDown" name="mark" size="1">
-    <c:forEach begin="1" end="5" varStatus="num">
-        <option>${num.index} </option>
-    </c:forEach>
-</select>
-    <div class="form-group">
-        <button type="submit" class="button">Оценить</button>
-    </div>
-</form>
-</div>
-<div>Средняя оценка:
-    <form method="get" enctype="multipart/form-data" action="/book/${book.id}">
-        ${avg}
-    </form>
-</div>
-<div>Добавить комментарий</div>
-<div>Комментарии</div>
-<div>Читать
-    <form method="get" enctype="multipart/form-data" action="/book/${book.id}/read">
-        <div class="form-group">
-            <button type="submit" class="button">Читать</button>
-        </div>
-    </form>
 </div>
 </body>
 </html>

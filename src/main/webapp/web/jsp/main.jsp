@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--Как передавать данные пользователя в виде параметров на страницы кабинетов? --%>
 <%--Кнопки добавления книг, авторов и жанров для админа--%>
 <%--Кнопки оформить как кнопки, а не как ссылки--%>
@@ -153,17 +154,20 @@
                 <button type="submit" class="button">Регистрация</button>
             </form>
         </div>
-
+        <sec:authorize access="hasRole('ROLE_USER')">
         <div>
             <form action="/user" method="get" >
                 <button type="submit" class="button">кабинет пользователя</button>
             </form>
         </div>
+        </sec:authorize>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
         <div>
             <form action="/admin" method="get" >
                 <button type="submit" class="button">кабинет админа</button>
             </form>
         </div>
+        </sec:authorize>
         <div>
             <form action="/logout" method="post" >
                 <button type="submit" class="button">Sign Out</button>
@@ -182,6 +186,7 @@
         </div>
     </form>
         <div>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
             <h3>Добавить нового автора</h3>
             <form method="post" enctype="multipart/form-data" action="/main/addAuthor">
                 <div class="form-group">
@@ -194,6 +199,7 @@
                     <button type="submit" class="button">Добавить</button>
                 </div>
             </form>
+            </sec:authorize>
         </div>
     </div>
 
@@ -205,6 +211,7 @@
             <button type="submit" class="button">найти</button>
         </div>
     </form>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
         <h3>Добавить новую книгу</h3>
     <form method="post" enctype="multipart/form-data" action="/main/addBook">
 
@@ -234,13 +241,16 @@
             <button type="submit" class="button">Добавить</button>
         </div>
     </form>
+        </sec:authorize>
     </div>
+
 
     <div class="genre">
         <h3>Список жанров: </h3>
         <c:forEach var="genre" items="${genres}">
             <h3><a href="/genre/${genre.id}">${genre.name}</a></h3>
         </c:forEach>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
         <h3>Добавить новый жанр</h3>
         <form method="post" enctype="multipart/form-data" action="/main/addGenre">
             <div class="form-group">
@@ -250,6 +260,8 @@
                 <button type="submit" class="button">Добавить</button>
             </div>
         </form>
+
+        </sec:authorize>
     </div>
 
 </div>

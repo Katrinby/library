@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
@@ -36,7 +35,7 @@ public class MainController {
     @Autowired
     private BookRepository bookRepository;
 
-    @PostMapping("main/addBook")//стопорится на 62 строке, в бд создаются автор и жанр, книга не создается
+    @PostMapping("main/addBook")
     public String addBook(@RequestParam String name, @RequestParam String lname, @RequestParam String publishingHouse,
                           @RequestParam @DateTimeFormat(pattern = "yyyy") Date publishingDate,
                           @RequestParam String description, @RequestParam String bookSeriesName,
@@ -123,7 +122,7 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String filterByAuthor(@RequestParam String filterByAuthor, Map<String, Object> model) {
+    public String filterByAuthor(/*@RequestParam String filterByAuthor, Map<String, Object> model*/) {
         return "main";
     }
 

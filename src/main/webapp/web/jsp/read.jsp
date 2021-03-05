@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Страница книги</title>
+    <title>Страница для чтения книги</title>
 </head>
 <style>
     body {
@@ -26,6 +26,7 @@
         font-size: 20px;
     }
     .content{
+        font-size: 20px;
         width: 32%;
         float: left;
         min-height: 100%;
@@ -90,41 +91,8 @@
     </div>
 </div>
 <div class="content">
-       <h2> Издательство: ${book.publishingHouse}</h2>
-       <h2> Серия: <a href="/bookSeries/${bookSeries.id}">${bookSeries.name}</a></h2>
-       <h2> Дата публикации: ${book.publishingDate}</h2>
-       <h2> Описание книги: ${book.description}</h2>
-       <h2>Автор(ы) книги:</h2>
-    <c:forEach var="author" items="${book.authors}">
-        <h3>Имя: <a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h3>Дата рождения: ${author.dateBirth}</h3>
-    </c:forEach>
-
-</div>
-<div>Оцените книгу:
-<form method="get" enctype="multipart/form-data" action="/book/${book.id}/chooseMark">
-<select id="dropDown" name="mark" size="1">
-    <c:forEach begin="1" end="5" varStatus="num">
-        <option>${num.index} </option>
-    </c:forEach>
-</select>
-    <div class="form-group">
-        <button type="submit" class="button">Оценить</button>
-    </div>
-</form>
-</div>
-<div>Средняя оценка:
-    <form method="get" enctype="multipart/form-data" action="/book/${book.id}">
-        ${avg}
-    </form>
-</div>
-<div>Добавить комментарий</div>
-<div>Комментарии</div>
-<div>Читать
     <form method="get" enctype="multipart/form-data" action="/book/${book.id}/read">
-        <div class="form-group">
-            <button type="submit" class="button">Читать</button>
-        </div>
+    <h3> ${text} </h3>
     </form>
 </div>
 </body>
