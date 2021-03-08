@@ -1,5 +1,7 @@
+<%@ page import="com.company.libraryFinal.entity.YesNoEnum" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,8 +94,17 @@
 </div>
 <div class="content">
    <h3>Информация о рассматриваемой книге: </h3>
-    <h3> Дата публикации: ${storage.publishingDate}</h3>
-    <h3> Текущий статус: ${storage.status}</h3>
+    <h3> Дата публикации: ${storage.yearOfPublishing}</h3>
+    <h3> Текущий статус: ${storage.status} </h3>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+    <form method="get" enctype="multipart/form-data" action="/storage/${storage.id}/edit">
+        <select id="dropDown" name="answer" size="1">
+                <option>true</option>
+                <option>false</option>
+        </select>
+        <button type="submit" class="button">Оценить</button>
+    </form>
+    </sec:authorize>
 </div>
 </body>
 </html>

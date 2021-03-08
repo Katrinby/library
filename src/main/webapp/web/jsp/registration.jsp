@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Spring Security Example </title>
+    <title>Registration</title>
 </head>
 <style>
     body {
@@ -109,8 +111,10 @@
     }
 </style>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="internationalization.js"></script>
 <div class="header">
-    <h1>Регистрация</h1>
+    <h1><fmt:message key="label.registration"/></h1>
     <div>
         <form action="/main" method="get" >
             <button type="submit" class="button">Главная</button>
@@ -119,6 +123,23 @@
 </div>
 <div class="center">
 <div class="content">
+    
+    
+    <span><fmt:message key="label.lang.change"/></span>
+    <select id="locales">
+        <option><a href="?lang=en"><fmt:message key="label.lang.eng"/></a></option>
+        <option><a href="?lang=ru"><fmt:message key="label.lang.ru"/></a></option>
+    </select>
+
+        <%--<span th:text="#{label.lang.change}"></span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en" th:text="#{label.lang.eng}"></option>
+            <option value="fr" th:text="#{label.lang.ru}"></option>
+        </select>--%>
+
+    <%--<button type="submit" class="button">Выбрать</button>--%>
+    
 <form action="/registration" method="post">
     <div><label> Логин: <input type="text" name="username"/> </label></div>
     <div><label> Пароль: <input type="password" name="password"/> </label></div>

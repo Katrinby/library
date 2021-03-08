@@ -61,14 +61,16 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}/chooseMark")
-            public String chooseMark(Model model, @RequestParam("mark") Integer number,  @AuthenticationPrincipal Authentication auth, @PathVariable Long bookId)
+            public String chooseMark(Model model, @RequestParam("mark") Integer number,  @AuthenticationPrincipal Authentication auth,
+                                     @PathVariable Long bookId)
     {
         Book book = bookRepository.findBookById(bookId);
         User user = userRepository.findByUsername(auth.getName());
-        if (!markRepository.existsMarkByUser(user)) {
+        if (!markRepository.existsMarkByUserAndBook(user, book)) {
             Mark mark = new Mark(number);
             mark.setBook(book);
             mark.setUser(user);
+            userRepository.save(user);
             markRepository.save(mark);
             Iterable<Mark> marks = markRepository.findAll();
             model.addAttribute("marks", marks);
@@ -83,7 +85,8 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}/addComment")
-    public String addComment(Model model, @RequestParam String text,  @AuthenticationPrincipal Authentication auth, @PathVariable Long bookId)
+    public String addComment(Model model, @RequestParam String text,  @AuthenticationPrincipal Authentication auth,
+                             @PathVariable Long bookId)
     {//todo сделать ограничение на количество символов и подобрать размер окна ввода
         Book book = bookRepository.findBookById(bookId);
         User user = userRepository.findByUsername(auth.getName());

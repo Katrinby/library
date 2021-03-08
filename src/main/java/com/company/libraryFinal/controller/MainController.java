@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class MainController {//todo функционал страницы пользователя
+public class MainController {
     //todo функцилнал страницы админа(одобрить-отказать)
     //todo ИНТЕРНАЦИОНАЛИЗАЦИЯ!!!
     @Autowired

@@ -12,4 +12,5 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
     Boolean existsMarkByUser(User user);
     Mark findMarkByUserAndBook(User user, Book book);
     List<Mark> findMarksByBookId(Long id);
+    Boolean existsMarkByUserAndBook(User user, Book book);
 }

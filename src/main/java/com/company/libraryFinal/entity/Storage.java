@@ -2,7 +2,6 @@ package com.company.libraryFinal.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "book_storage")
@@ -19,13 +18,42 @@ public class Storage {
     private User user;
 
     private String name;
+    @Column(name = "year_publishing")
+    private Date yearOfPublishing;
 
-    private Date publishingDate;
+    private String description;
 
-    //@Enumerated(value = EnumType.STRING)
+    private String genre;
+
+   /* @Enumerated(value = EnumType.STRING)*/
     private boolean status;
 
     public Storage() {
+    }
+
+    public Storage(User user, String name, Date yearOfPublishing, String description, String genre, boolean status) {
+        this.user = user;
+        this.name = name;
+        this.yearOfPublishing = yearOfPublishing;
+        this.description = description;
+        this.genre = genre;
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -52,12 +80,12 @@ public class Storage {
         this.name = name;
     }
 
-    public Date getPublishingDate() {
-        return publishingDate;
+    public Date getYearOfPublishing() {
+        return yearOfPublishing;
     }
 
-    public void setPublishingDate(Date publishingDate) {
-        this.publishingDate = publishingDate;
+    public void setYearOfPublishing(Date publishingDate) {
+        this.yearOfPublishing = publishingDate;
     }
 
     public boolean isStatus() {

@@ -68,6 +68,16 @@
         font-size: 20px;
         font-family: Monotype Corsiva, Chiller, cursive;
     }
+    input[type=date] {
+        padding:10px;
+        margin: 10px;
+        border:0;
+        width:200px;
+        border-radius:10px;
+        cursor: text;
+        font-size: 20px;
+        font-family: Monotype Corsiva, Chiller, cursive;
+    }
     a:link {
         color: darkcyan;
         font-size: 20px;
@@ -101,6 +111,26 @@
         <c:forEach var="storage" items="${storages}">
             <h3> <a href="/user/storage/${storage.id}">${storage.name}</a></h3>
         </c:forEach>
+
+    <h3>Добавить новую книгу</h3>
+    <form method="post" enctype="multipart/form-data" action="/user/addStorage">
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Введите название книги" />
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" name="publishingDate" placeholder="publishingDate" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="description" placeholder="description" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="genre" placeholder="genre" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">Добавить</button>
+        </div>
+    </form>
 </div>
 
 

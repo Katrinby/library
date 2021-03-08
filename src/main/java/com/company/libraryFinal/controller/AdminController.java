@@ -26,7 +26,6 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
 
-   // @RolesAllowed("ADMIN")
     @PreAuthorize("hasAnyRole(\"ROLE_ADMIN\")")
     @GetMapping
     public String getAll(Model model, @AuthenticationPrincipal Authentication auth){
@@ -43,4 +42,6 @@ public class AdminController {
         model.addAttribute("storage", storage);
         return "storage";
     }
+
+
 }

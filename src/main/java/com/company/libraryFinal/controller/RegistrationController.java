@@ -45,21 +45,23 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(Map<String, Object> model, @RequestParam String username, @RequestParam String password,
-                          @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateBirth, @RequestParam String fname, @RequestParam String lname) {
+                          @RequestParam @DateTimeFormat(pattern = "dd.mm.yyyy") Date dateBirth,
+                          @RequestParam String fname, @RequestParam String lname) {
         User userFromDb = userRepository.findByUsername(username);
         if (userFromDb != null) {
             model.put("message", "User exists!");
             return "registration";
         }
-
         User user = new User(username, password);
+        userRepository.save(user);
         UserInfo userInfo = new UserInfo(lname, fname, dateBirth, user);
         user.setUserInfo(userInfo);
+        user.setRoles(Collections.singleton(roleRepository.findRoleByRole("ROLE_USER")));
         user.setActive(true);
-        user.setRoles(Collections.singleton(roleRepository.findByRole("USER")));
-        userRepository.save(user);
-        userInfoRepository.save(userInfo);
+        //user.setRoles(Collections.singleton(roleRepository.findByRole("ROLE_USER").get(0)));
 
+        userInfoRepository.save(userInfo);
+        //userRepository.save(user);
         return "redirect:/login";
     }
 
