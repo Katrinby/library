@@ -27,16 +27,16 @@
         cursor: default;
         font-size: 20px;
     }
-    .content{
-        /*width: 32%;*/
+    .content {
         font-size: 20px;
         float: left;
         min-height: 35%;
+
         backdrop-filter: blur(4px);
-        background: rgba(255,255,255,0.4);
+        background: rgba(255, 255, 255, 0.4);
         border-style: double;
         padding: 5px;
-        /*margin: 10px;*/
+
         border-width: 5px;
         border-color: darkcyan;
         border-radius: 10px;
@@ -45,6 +45,7 @@
 
         width: 250px;
         height: 150px;
+
         position: absolute;
         top: 10%;
         left: 50%;
@@ -114,39 +115,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="internationalization.js"></script>
 <div class="header">
-    <h1><fmt:message key="label.registration"/></h1>
+    <h1><spring:message code="label.registration"/></h1>
     <div>
         <form action="/main" method="get" >
-            <button type="submit" class="button">Главная</button>
+            <button type="submit" class="button"><spring:message code="label.main"/></button>
         </form>
+    </div>
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?lang=en">
+                <img src="../../resources/static/en.png" alt="en" style="top: 0px;
+                 right: 0px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+            <a class="dropdown-item" href="?lang=ru">
+                <img src="../../resources/static/ru.png" alt="ru" style="top: 0px;
+                right: 50px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+        </div>
     </div>
 </div>
 <div class="center">
 <div class="content">
-    
-    
-    <span><fmt:message key="label.lang.change"/></span>
-    <select id="locales">
-        <option><a href="?lang=en"><fmt:message key="label.lang.eng"/></a></option>
-        <option><a href="?lang=ru"><fmt:message key="label.lang.ru"/></a></option>
-    </select>
 
-        <%--<span th:text="#{label.lang.change}"></span>:
-        <select id="locales">
-            <option value=""></option>
-            <option value="en" th:text="#{label.lang.eng}"></option>
-            <option value="fr" th:text="#{label.lang.ru}"></option>
-        </select>--%>
-
-    <%--<button type="submit" class="button">Выбрать</button>--%>
-    
 <form action="/registration" method="post">
-    <div><label> Логин: <input type="text" name="username"/> </label></div>
-    <div><label> Пароль: <input type="password" name="password"/> </label></div>
-    <div><label> Имя : <input type="text" name="lname"/> </label></div>
-    <div><label> Фамилия : <input type="text" name="fname"/> </label></div>
-    <div><label> Дата рождения : <input type="text" name="dateBirth"/> </label></div>
-    <button type="submit" class="button">Зарегистрироваться</button>
+    <div><label> <spring:message code="label.login"/> <input type="text" name="username"/> </label></div>
+    <div><label> <spring:message code="label.password"/> <input type="password" name="password"/> </label></div>
+    <div><label> <spring:message code="label.lastname"/><input type="text" name="lname"/> </label></div>
+    <div><label> <spring:message code="label.name"/> <input type="text" name="fname"/> </label></div>
+    <div><label> <spring:message code="label.dateBirth"/> <input type="text" name="dateBirth"/> </label></div>
+    <button type="submit" class="button"><spring:message code="label.register"/></button>
 </form>
 </div>
 </div>

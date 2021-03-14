@@ -8,6 +8,7 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author, Long> {
     Author findAuthorByLname(String lname);
 
+    List<Author> findAllByLnameContains(String lname);
     List<Author> findAllByLname(String lname);
 
     Author findAuthorById(Long Id);

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--Как передавать данные пользователя в виде параметров на страницы кабинетов? --%>
 <%--Кнопки добавления книг, авторов и жанров для админа--%>
 <%--Кнопки оформить как кнопки, а не как ссылки--%>
@@ -141,6 +142,18 @@
 <body>
 <div class="header">
     <h1>Библиотека</h1>
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?lang=en">
+                <img src="../../resources/static/en.png" alt="en" style="top: 0px;
+                 left: 0px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+            <a class="dropdown-item" href="?lang=ru">
+                <img src="../../resources/static/ru.png" alt="ru" style="top: 0px;
+                left: 50px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+        </div>
+    </div>
     <div class="hrefs">
 
         <div>
@@ -154,6 +167,7 @@
                 <button type="submit" class="button">Регистрация</button>
             </form>
         </div>
+
         <sec:authorize access="hasRole('ROLE_USER')">
         <div>
             <form action="/user" method="get" >

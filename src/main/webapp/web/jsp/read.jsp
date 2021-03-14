@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,9 +85,22 @@
 <body>
 <div class="header">
     <h1>${book.name}</h1>
+    <h1>${storage.name}</h1>
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?lang=en">
+                <img src="../../resources/static/en.png" alt="en" style="top: 0px;
+                 right: 0px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+            <a class="dropdown-item" href="?lang=ru">
+                <img src="../../resources/static/ru.png" alt="ru" style="top: 0px;
+                right: 50px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+        </div>
+    </div>
     <div>
         <form action="/main" method="get" >
-            <button type="submit" class="button">Главная</button>
+            <button type="submit" class="button"><spring:message code="label.main"/></button>
         </form>
     </div>
 </div>

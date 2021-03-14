@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,16 +87,41 @@
 <body>
 <div class="header">
     <h1>${storage.name}</h1>
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?lang=en">
+                <img src="../../resources/static/en.png" alt="en" style="top: 0px;
+                 right: 0px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+            <a class="dropdown-item" href="?lang=ru">
+                <img src="../../resources/static/ru.png" alt="ru" style="top: 0px;
+                right: 50px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+        </div>
+    </div>
+
     <div>
         <form action="/main" method="get" >
-            <button type="submit" class="button">Главная</button>
+            <button type="submit" class="button"><spring:message code="label.main"/></button>
         </form>
     </div>
 </div>
 <div class="content">
-   <h3>Информация о рассматриваемой книге: </h3>
+    <h3> Информация о рассматриваемой книге: </h3>
     <h3> Дата публикации: ${storage.yearOfPublishing}</h3>
+    <h3> Описание: ${storage.description}</h3>
+    <h3> Жанр: ${storage.genre}</h3>
     <h3> Текущий статус: ${storage.status} </h3>
+
+
+    <div>
+        <form method="get" enctype="multipart/form-data" action="/storage/${storage.id}/read">
+            <button type="submit" class="button" style="height: 70px; width: 150px">
+                <img src="../../resources/static/read.jpg" alt=" " style="vertical-align: middle; height: 45px; width: 45px ">Читать</button>
+        </form>
+    </div>
+
+
     <sec:authorize access="hasRole('ROLE_ADMIN')">
     <form method="get" enctype="multipart/form-data" action="/storage/${storage.id}/edit">
         <select id="dropDown" name="answer" size="1">

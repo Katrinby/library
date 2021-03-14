@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -112,15 +113,27 @@
 </style>
 <body>
 <div class="header">
-    <h1>Авторизация</h1>
+    <h1><spring:message code="label.authorization"/></h1>
+    <div class="dropdown">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?lang=en">
+                <img src="../../resources/static/en.png" alt="en" style="top: 0px;
+                 right: 0px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+            <a class="dropdown-item" href="?lang=ru">
+                <img src="../../resources/static/ru.png" alt="ru" style="top: 0px;
+                right: 50px; position: absolute; vertical-align: middle; height: 45px;
+                 width: 45px; border: double; border-radius: 30px "></a>
+        </div>
+    </div>
     <div>
         <form action="/main" method="get" >
-            <button type="submit" class="button">Главная</button>
+            <button type="submit" class="button"><spring:message code="label.main"/></button>
         </form>
     </div>
     <div>
         <form action="/registration" method="get" >
-            <button type="submit" class="button">Регистрация</button>
+            <button type="submit" class="button"><spring:message code="label.registration"/></button>
         </form>
     </div>
 </div>
@@ -128,9 +141,9 @@
 <div class="center">
 <div class="content">
 <form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <button type="submit" class="button">Log in</button>
+    <div><label><spring:message code="label.login"/><input type="text" name="username"/> </label></div>
+    <div><label><spring:message code="label.password"/><input type="password" name="password"/> </label></div>
+    <button type="submit" class="button"><spring:message code="label.logIn"/></button>
 </form>
 </div>
 </div>

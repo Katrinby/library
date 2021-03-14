@@ -41,8 +41,8 @@ public class UserController {
     @PreAuthorize("hasAnyRole(\"ROLE_USER\")")
     @GetMapping
     public String getAll(Model model, @AuthenticationPrincipal Authentication auth){
-        List<Storage> storages = storageRepository.findAll();
         User user = userRepository.findByUsername(auth.getName());
+        List<Storage> storages = storageRepository.findStoragesByUser(user);
         model.addAttribute("storages", storages);
         model.addAttribute("user", user);
         return "userCabinet";

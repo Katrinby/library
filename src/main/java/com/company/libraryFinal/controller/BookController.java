@@ -98,7 +98,7 @@ public class BookController {
 
     @GetMapping("/search")
     public String getBooks(Model model, @RequestParam(defaultValue = "qwe2")String name){
-        List<Book> books = bookRepository.findAllByName(name);
+        List<Book> books = bookRepository.findAllByNameContains(name);
         model.addAttribute("books", books);
         return "searchResults";
 

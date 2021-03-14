@@ -67,14 +67,13 @@ public class StorageController {
             book.setBookSeries(bookSeries);
             book.setPublishingDate(storage.getYearOfPublishing());
 
-            //...
             Author author = new Author();
             author.setFname(user.getUserInfo().getFname());
             author.setLname(user.getUserInfo().getLname());
             author.setDateBirth(user.getUserInfo().getDateBirth());
             author.setBooks(Collections.singletonList(book));
             book.setAuthors(Collections.singletonList(author));
-            //...
+
             bookSeriesRepository.save(bookSeries);
             authorRepository.save(author);
             bookRepository.save(book);
@@ -82,5 +81,14 @@ public class StorageController {
             return "redirect:/admin";
         }
         return "storage";
+    }
+
+    @GetMapping("/{storageId}/read")
+    public String read(Model model, @PathVariable Long storageId){
+        Storage storage = storageRepository.findStorageById(storageId);
+        String text = storage.getDescription();
+        model.addAttribute("storage", storage);
+        model.addAttribute("text", text);//допустим, что описание книги - и есть ее содержимое
+        return "read";
     }
 }

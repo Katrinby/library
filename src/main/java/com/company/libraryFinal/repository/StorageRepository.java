@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface StorageRepository extends JpaRepository<Storage, Long> {
     List<Storage> findAll();
+    List<Storage> findStoragesByUser(User user);
     Storage findStorageById(Long id);
     Boolean existsStorageByName(String name);
 }

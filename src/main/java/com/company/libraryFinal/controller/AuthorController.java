@@ -35,7 +35,7 @@ public class AuthorController {
 
     @GetMapping("/search")
     public String getAuthors(Model model, @RequestParam(defaultValue = "qwe2")String lname){
-        List<Author> authors = authorRepository.findAllByLname(lname);
+        List<Author> authors = authorRepository.findAllByLnameContains(lname);
         model.addAttribute("authors", authors);
         return "searchResults";
 
