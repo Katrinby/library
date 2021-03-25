@@ -70,20 +70,16 @@
     a:link {
         color: darkcyan;
         font-size: 20px;
-        /*text-decoration: none;*/
         font-family: Monotype Corsiva, Chiller, cursive;
     }
     a:visited {
         color: darkslategrey;
-        /*text-decoration: none;*/
     }
     a:hover {
         color: darkslategrey;
-        /* text-decoration: none;*/
     }
     a:active {
         color: darkslategrey;
-        /*text-decoration: none;*/
     }
 </style>
 <body>
@@ -109,8 +105,8 @@
 </div>
 <div class="content">
     <c:forEach var="book" items="${bookSeries.books}">
-        <h3>Название: <a href="/book/${book.id}">${book.name}</a></h3>
-        <h3>Описание: ${book.description}</h3>
+        <h3><spring:message code="label.bookName"/> <a href="/book/${book.id}">${book.name}</a></h3>
+        <h3><spring:message code="label.description"/>${book.description}</h3>
     </c:forEach>
 </div>
 </body>

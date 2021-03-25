@@ -20,7 +20,6 @@
         border-width: 5px;
         border-color: darkcyan;
         border-radius: 10px;
-
         font-family: Monotype Corsiva, Chiller, cursive;
         font-style: italic;
         text-align: center;

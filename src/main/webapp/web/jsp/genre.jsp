@@ -105,12 +105,12 @@
 </div>
 
 <div class="content">
-    <h3>Список книг данного жанра</h3>
+    <h3><spring:message code="label.listBooks"/></h3>
     <c:forEach var="book" items="${genre.books}">
-        <h4>Название: <a href="/book/${book.id}">${book.name}</a></h4>
-        <h4>Издательство: ${book.publishingHouse}</h4>
-        <h4>Дата публикации: ${book.publishingDate}</h4>
-        <h4>Описание: ${book.description}></h4>
+        <h4><spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h4>
+        <h4><spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
+        <h4><spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
+        <h4><spring:message code="label.description"/>${book.description}></h4>
     </c:forEach>
 </div>
 </body>

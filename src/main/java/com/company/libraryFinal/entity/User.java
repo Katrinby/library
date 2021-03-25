@@ -1,21 +1,18 @@
 package com.company.libraryFinal.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "usr")
-public class User /*implements UserDetails*/ {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
     private boolean active;
-/*    @Transient
-    private String passwordConfirm;*/
     @OneToOne
     @JoinColumn(name = "id_usr_info", referencedColumnName = "id")
     private UserInfo userInfo;
@@ -117,42 +114,6 @@ public class User /*implements UserDetails*/ {
         this.storages = storages;
     }
 
-
-    /*@Override
-        public String getUsername() {
-            return username;
-        }
-
-        @Override
-        public boolean isAccountNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isAccountNonLocked() {
-            return true;
-        }
-
-        @Override
-        public boolean isCredentialsNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isEnabled() {
-            return true;
-        }
-
-        @Override
-        public Collection<? extends GrantedAuthority> getAuthorities() {
-            return getRoles();
-        }
-
-        @Override
-        public String getPassword() {
-            return password;
-        }
-    */
     public void setPassword(String password) {
         this.password = password;
     }

@@ -108,13 +108,13 @@
     </div>
 </div>
 <div class="content">
-    <h2>Дата рождения: ${author.dateBirth}</h2>
-                <h3>Перечень книг автора: </h3>
+    <h2><spring:message code="label.dateBirth"/>${author.dateBirth}</h2>
+                <h3><spring:message code="label.authorBookList"/></h3>
                 <c:forEach var="book" items="${author.books}">
-                    <h4>Название: <a href="/book/${book.id}">${book.name}</a></h4>
-                    <h4>Издательство: ${book.publishingHouse}</h4>
-                    <h4>Дата публикации: ${book.publishingDate}</h4>
-                    <h4>Описание: ${book.description}</h4>
+                    <h4><spring:message code="label.bookName"/> <a href="/book/${book.id}">${book.name}</a></h4>
+                    <h4><spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
+                    <h4><spring:message code="label.publishingDate"/> ${book.publishingDate}</h4>
+                    <h4><spring:message code="label.description"/>${book.description}</h4>
                 </c:forEach>
 </div>
 </body>

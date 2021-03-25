@@ -86,7 +86,7 @@
 </style>
 <body>
 <div class="header">
-    <h1>Личный кабинет администратора ${user.username}</h1>
+    <h1><spring:message code="label.aCabinet"/> ${user.username}</h1>
     <div class="dropdown">
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="?lang=en">
@@ -106,11 +106,11 @@
     </div>
 </div>
 <div class="content">
-    <h1> Информация о пользователе: </h1>
-    <h2> Дата рождения: ${user.userInfo.dateBirth}</h2>
-    <h2> Имя: ${user.userInfo.fname}</h2>
-    <h2> Фамилия: ${user.userInfo.lname}</h2>
-    <h2>Список книг на рассмотрении: </h2>
+    <h1> <spring:message code="label.userInfo"/></h1>
+    <h2> <spring:message code="label.dateBirth"/>${user.userInfo.dateBirth}</h2>
+    <h2> <spring:message code="label.name"/>${user.userInfo.fname}</h2>
+    <h2> <spring:message code="label.lastname"/>${user.userInfo.lname}</h2>
+    <h2> <spring:message code="label.bookList"/></h2>
     <c:forEach var="storage" items="${storages}">
         <h3><a href="/admin/storage/${storage.id}">${storage.name}</a></h3>
     </c:forEach>

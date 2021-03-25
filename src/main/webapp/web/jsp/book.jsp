@@ -28,7 +28,6 @@
     }
     .content{
         width: 800px;
-        height: 900px;
         position: absolute;
         top: 40%;
         left: 30%;
@@ -118,19 +117,19 @@
     <div>
         <form method="get" enctype="multipart/form-data" action="/book/${book.id}/read">
             <button type="submit" class="button" style="height: 70px; width: 150px">
-                <img src="../../resources/static/read.jpg" alt=" " style="vertical-align: middle; height: 45px; width: 45px ">Читать</button>
+                <img src="../../resources/static/read.jpg" alt=" " style="vertical-align: middle; height: 45px; width: 45px "><spring:message code="label.read"/></button>
         </form>
     </div>
-       <h2> Издательство: ${book.publishingHouse}</h2>
+       <h2> <spring:message code="label.publishingHouse"/> ${book.publishingHouse}</h2>
        <h2> Серия: <a href="/bookSeries/${bookSeries.id}">${bookSeries.name}</a></h2>
-       <h2> Дата публикации: ${book.publishingDate}</h2>
-       <h2> Описание книги: ${book.description}</h2>
-       <h2>Автор(ы) книги:</h2>
+       <h2> <spring:message code="label.publishingDate"/>${book.publishingDate}</h2>
+       <h2> <spring:message code="label.description"/>${book.description}</h2>
+       <h2> <spring:message code="label.authorsList"/></h2>
     <c:forEach var="author" items="${book.authors}">
-        <h3>Имя: <a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h3>Дата рождения: ${author.dateBirth}</h3>
+        <h3><spring:message code="label.fullname"/><a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
+        <h3><spring:message code="label.dateBirth"/>${author.dateBirth}</h3>
     </c:forEach>
-    <div><h3>Оцените книгу:</h3>
+    <div><h3><spring:message code="label.rateBook"/></h3>
         <form method="get" enctype="multipart/form-data" action="/book/${book.id}/chooseMark">
             <select id="dropDown" name="mark" size="1">
                 <c:forEach begin="1" end="5" varStatus="num">
@@ -138,15 +137,15 @@
                 </c:forEach>
 
             </select>
-            <button type="submit" class="button">Оценить</button>
+            <button type="submit" class="button"><spring:message code="label.rate"/></button>
         </form>
     </div>
-    <div><h1>Средняя оценка:</h1>
+    <div><h1><spring:message code="label.avg"/></h1>
         <form method="get" enctype="multipart/form-data" action="/book/${book.id}">
-            ${avg}
+            <h1>${avg}</h1>
         </form>
     </div>
-    <h3>Комментарии:</h3>
+    <h3><spring:message code="label.comments"/></h3>
         <c:forEach var="comment" items="${comments}">
     <div class="comment">
         <h2>${user.username} : </h2><h3>${comment.text}</h3>
@@ -154,13 +153,10 @@
         </c:forEach>
     <div>
         <form method="get" enctype="multipart/form-data" action="/book/${book.id}/addComment">
-            <input type="text" class="form-control" name="text" placeholder="Введите комментарий" style="width: 600px; height: 45px"/>
-            <button type="submit" class="button">Написать<img src="../../resources/static/pero.png" alt=" " style="vertical-align: middle; height: 28px; width: 28px "></button>
+            <input type="text" class="form-control" name="text" placeholder="<spring:message code="label.addComment"/>" style="width: 600px; height: 45px"/>
+            <button type="submit" class="button"><spring:message code="label.write"/><img src="../../resources/static/pero.png" alt=" " style="vertical-align: middle; height: 28px; width: 28px "></button>
         </form>
     </div>
-
-
 </div>
-
 </body>
 </html>

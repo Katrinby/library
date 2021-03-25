@@ -96,7 +96,7 @@
 </style>
 <body>
 <div class="header">
-    <h1>Личный кабинет пользователя ${user.username}</h1>
+    <h1><spring:message code="label.uCabinet"/> ${user.username}</h1>
     <div class="dropdown">
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="?lang=en">
@@ -116,32 +116,32 @@
     </div>
 </div>
 <div class="content">
-        <h1> Информация о пользователе: </h1>
+        <h1> <spring:message code="label.userInfo"/></h1>
         <h2><spring:message code="label.dateBirth"/>${user.userInfo.dateBirth}</h2>
         <h2><spring:message code="label.name"/>${user.userInfo.fname}</h2>
         <h2><spring:message code="label.lastname"/>${user.userInfo.lname}</h2>
-        <h2>Список книг на рассмотрении: </h2>
+        <h2> <spring:message code="label.userBookList"/></h2>
         <c:forEach var="storage" items="${storages}">
             <h3> <a href="/user/storage/${storage.id}">${storage.name}</a></h3>
         </c:forEach>
 
-    <h3>Добавить новую книгу</h3>
+    <h3><spring:message code="label.addBook"/></h3>
     <form method="post" enctype="multipart/form-data" action="/user/addStorage">
 
         <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Введите название книги" />
+            <input type="text" class="form-control" name="name" placeholder="<spring:message code="label.bookName"/>" />
         </div>
         <div class="form-group">
-            <input type="date" class="form-control" name="publishingDate" placeholder="publishingDate" />
+            <input type="date" class="form-control" name="publishingDate" placeholder="<spring:message code="label.publishingDate"/>" />
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="description" placeholder="description" />
+            <input type="text" class="form-control" name="description" placeholder="<spring:message code="label.description"/>" />
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="genre" placeholder="genre" />
+            <input type="text" class="form-control" name="genre" placeholder="<spring:message code="label.genre"/>" />
         </div>
         <div class="form-group">
-            <button type="submit" class="button">Добавить</button>
+            <button type="submit" class="button"><spring:message code="label.add"/></button>
         </div>
     </form>
 </div>

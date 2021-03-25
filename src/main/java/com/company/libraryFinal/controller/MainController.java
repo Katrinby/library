@@ -9,13 +9,14 @@ import com.company.libraryFinal.repository.BookRepository;
 import com.company.libraryFinal.repository.BookSeriesRepository;
 import com.company.libraryFinal.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +24,7 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-    //todo функцилнал страницы админа(одобрить-отказать)
-    //todo ИНТЕРНАЦИОНАЛИЗАЦИЯ!!!
+
     @Autowired
     private GenreRepository genreRepository;
 
@@ -39,20 +39,23 @@ public class MainController {
 
     @PostMapping("main/addBook")
     public String addBook(@RequestParam String name, @RequestParam String lname, @RequestParam String publishingHouse,
-                          @RequestParam @DateTimeFormat(pattern = "yyyy") Date publishingDate,
+                          @RequestParam String publishingDate,
                           @RequestParam String description, @RequestParam String bookSeriesName,
-                          @RequestParam String genre, Map<String, Object> model) {
+                          @RequestParam String genre, Map<String, Object> model) throws ParseException {
 
         if (!bookRepository.existsBookByName(name)) {
 
-            if(!bookSeriesRepository.existsBookSeriesByName(bookSeriesName)){
+            if (!bookSeriesRepository.existsBookSeriesByName(bookSeriesName)) {
                 BookSeries bookSeries = new BookSeries(bookSeriesName);
                 bookSeriesRepository.save(bookSeries);
             }
 
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = formatter.parse(publishingDate);
+
             BookSeries bookSeries = bookSeriesRepository.findBookSeriesByName(bookSeriesName);
 
-            Book book = new Book(name, publishingHouse, publishingDate, description, bookSeries);
+            Book book = new Book(name, publishingHouse, date, description, bookSeries);
 
             if (!authorRepository.existsAuthorByLname(lname)) {
 
@@ -64,7 +67,7 @@ public class MainController {
             }
             Author author = authorRepository.findAuthorByLname(lname);
 
-            if (!genreRepository.existsGenreByName(genre)){
+            if (!genreRepository.existsGenreByName(genre)) {
                 Genre newGenre = new Genre(genre);
                 genreRepository.save(newGenre);
                 Iterable<Genre> genres = genreRepository.findAll();
@@ -107,7 +110,7 @@ public class MainController {
 
     @PostMapping("main/addGenre")
     public String addGenre(@RequestParam String name, Map<String, Object> model) {
-        if (!genreRepository.existsGenreByName(name)){
+        if (!genreRepository.existsGenreByName(name)) {
             Genre genre = new Genre(name);
             genreRepository.save(genre);
             Iterable<Genre> genres = genreRepository.findAll();

@@ -1,4 +1,5 @@
 package com.company.libraryFinal.controller;
+
 import com.company.libraryFinal.entity.*;
 import com.company.libraryFinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class BookController {
     @Autowired
     private BookSeriesRepository bookSeriesRepository;
 
-    @GetMapping("/{bookId}")//todo придумать, что писать, если оценок еще нет(ноль может сбить с толку, хотя токой оценки и не существует)
-    public String getBookById(Model model, @PathVariable Long bookId, @AuthenticationPrincipal Authentication auth){
+    @GetMapping("/{bookId}")
+    public String getBookById(Model model, @PathVariable Long bookId, @AuthenticationPrincipal Authentication auth) {
         Book book = bookRepository.findBookById(bookId);
         model.addAttribute("book", book);
         BookSeries bookSeries = bookSeriesRepository.findBookSeriesByBooks(book);
@@ -43,16 +44,16 @@ public class BookController {
         markRepository.findAllByBookId(bookId);
         List<Mark> numbers = markRepository.findMarksByBookId(bookId);
         double counter = 0;
-        for (Mark number:numbers){
-            counter+=number.getMark();
+        for (Mark number : numbers) {
+            counter += number.getMark();
         }
-        double avg = counter/numbers.size();
+        double avg = counter / numbers.size();
         model.addAttribute("avg", avg);
         return "book";
     }
 
     @GetMapping("/{bookId}/read")
-    public String read(Model model, @PathVariable Long bookId){
+    public String read(Model model, @PathVariable Long bookId) {
         Book book = bookRepository.findBookById(bookId);
         String text = book.getDescription();
         model.addAttribute("book", book);
@@ -61,9 +62,8 @@ public class BookController {
     }
 
     @GetMapping("/{bookId}/chooseMark")
-            public String chooseMark(Model model, @RequestParam("mark") Integer number,  @AuthenticationPrincipal Authentication auth,
-                                     @PathVariable Long bookId)
-    {
+    public String chooseMark(Model model, @RequestParam("mark") Integer number, @AuthenticationPrincipal Authentication auth,
+                             @PathVariable Long bookId) {
         Book book = bookRepository.findBookById(bookId);
         User user = userRepository.findByUsername(auth.getName());
         if (!markRepository.existsMarkByUserAndBook(user, book)) {
@@ -81,26 +81,29 @@ public class BookController {
         markRepository.save(mark);
         Iterable<Mark> marks = markRepository.findAll();
         model.addAttribute("marks", marks);
-        return "redirect:/book/"+bookId;
+        return "redirect:/book/" + bookId;
     }
 
     @GetMapping("/{bookId}/addComment")
-    public String addComment(Model model, @RequestParam String text,  @AuthenticationPrincipal Authentication auth,
-                             @PathVariable Long bookId)
-    {//todo сделать ограничение на количество символов и подобрать размер окна ввода
+    public String addComment(Model model, @RequestParam String text, @AuthenticationPrincipal Authentication auth,
+                             @PathVariable Long bookId) {
         Book book = bookRepository.findBookById(bookId);
         User user = userRepository.findByUsername(auth.getName());
         Comment comment = new Comment(book, user, text);
         commentRepository.save(comment);
         model.addAttribute("comment", comment);
-        return "redirect:/book/"+bookId;
+        return "redirect:/book/" + bookId;
     }
 
     @GetMapping("/search")
-    public String getBooks(Model model, @RequestParam(defaultValue = "qwe2")String name){
-        List<Book> books = bookRepository.findAllByNameContains(name);
-        model.addAttribute("books", books);
+    public String getBooks(Model model, @RequestParam String name) {
+        if (name.isEmpty()) {
+            List<Book> books = bookRepository.findAll();
+            model.addAttribute("books", books);
+        } else {
+            List<Book> books = bookRepository.findAllByNameContains(name);
+            model.addAttribute("books", books);
+        }
         return "searchResults";
-
     }
 }

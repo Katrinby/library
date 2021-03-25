@@ -18,14 +18,14 @@ public class GenreController {
     private GenreRepository genreRepository;
 
     @GetMapping("/{genreId}")
-    public String getBooksByGenre(Model model, @PathVariable Long genreId){
+    public String getBooksByGenre(Model model, @PathVariable Long genreId) {
         Genre genre = genreRepository.findGenreById(genreId);
         model.addAttribute("genre", genre);
         return "genre";
     }
 
     @GetMapping
-    public String getAll(Model model){
+    public String getAll(Model model) {
         List<Genre> genres = genreRepository.findAll();
         model.addAttribute("genre", genres);
         return "genre";

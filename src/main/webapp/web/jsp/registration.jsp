@@ -110,6 +110,16 @@
     a:active {
         color: darkslategrey;
     }
+    input[type=date] {
+        padding:10px;
+        margin: 10px;
+        border:0;
+        width:200px;
+        border-radius:10px;
+        cursor: text;
+        font-size: 20px;
+        font-family: Monotype Corsiva, Chiller, cursive;
+    }
 </style>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -136,13 +146,12 @@
 </div>
 <div class="center">
 <div class="content">
-
 <form action="/registration" method="post">
     <div><label> <spring:message code="label.login"/> <input type="text" name="username"/> </label></div>
     <div><label> <spring:message code="label.password"/> <input type="password" name="password"/> </label></div>
     <div><label> <spring:message code="label.lastname"/><input type="text" name="lname"/> </label></div>
     <div><label> <spring:message code="label.name"/> <input type="text" name="fname"/> </label></div>
-    <div><label> <spring:message code="label.dateBirth"/> <input type="text" name="dateBirth"/> </label></div>
+    <div><label> <spring:message code="label.dateBirth"/> <input type="date" name="dateBirth"/> </label></div>
     <button type="submit" class="button"><spring:message code="label.register"/></button>
 </form>
 </div>

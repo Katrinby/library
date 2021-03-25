@@ -107,17 +107,17 @@
     </div>
 </div>
 <div class="content">
-    <h3> Информация о рассматриваемой книге: </h3>
-    <h3> Дата публикации: ${storage.yearOfPublishing}</h3>
-    <h3> Описание: ${storage.description}</h3>
-    <h3> Жанр: ${storage.genre}</h3>
-    <h3> Текущий статус: ${storage.status} </h3>
+    <h3> <spring:message code="label.bookInfo"/> </h3>
+    <h3> <spring:message code="label.publishingDate"/> ${storage.yearOfPublishing}</h3>
+    <h3> <spring:message code="label.description"/> ${storage.description}</h3>
+    <h3> <spring:message code="label.genre"/>  ${storage.genre}</h3>
+    <h3> <spring:message code="label.currentStatus"/>${storage.status} </h3>
 
 
     <div>
         <form method="get" enctype="multipart/form-data" action="/storage/${storage.id}/read">
             <button type="submit" class="button" style="height: 70px; width: 150px">
-                <img src="../../resources/static/read.jpg" alt=" " style="vertical-align: middle; height: 45px; width: 45px ">Читать</button>
+                <img src="../../resources/static/read.jpg" alt=" " style="vertical-align: middle; height: 45px; width: 45px "><spring:message code="label.read"/></button>
         </form>
     </div>
 
@@ -128,7 +128,7 @@
                 <option>true</option>
                 <option>false</option>
         </select>
-        <button type="submit" class="button">Оценить</button>
+        <button type="submit" class="button"><spring:message code="label.send"/></button>
     </form>
     </sec:authorize>
 </div>

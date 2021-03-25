@@ -3,19 +3,14 @@ package com.company.libraryFinal.controller;
 import com.company.libraryFinal.entity.*;
 import com.company.libraryFinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.BeanDefinitionDsl;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.Collections;
-import java.util.List;
 
 @Controller
 @RequestMapping("/storage")
@@ -24,9 +19,6 @@ public class StorageController {
 
     @Autowired
     private StorageRepository storageRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private BookRepository bookRepository;
@@ -43,7 +35,7 @@ public class StorageController {
 
     @PreAuthorize("hasAnyRole(\"ROLE_ADMIN\")")
     @GetMapping("/{storageId}/edit")
-    public String chooseMark(Model model, @RequestParam("answer") boolean answer, @PathVariable Long storageId, @AuthenticationPrincipal Authentication auth) {
+    public String chooseMark(Model model, @RequestParam("answer") boolean answer, @PathVariable Long storageId) {
         Storage storage = storageRepository.findStorageById(storageId);
         User user = storage.getUser();
         storage.setStatus(answer);

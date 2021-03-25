@@ -106,27 +106,27 @@
 <div class="content">
 <div class="book">
     <c:forEach var="book" items="${books}">
-        <h3> Название книги:<a href="/book/${book.id}">${book.name}</a></h3>
-        <h4> Издательство: ${book.publishingHouse}</h4>
-        <h4>Дата публикации: ${book.publishingDate}</h4>
-        <h4>Описание: ${book.description}</h4>
-        <h3>Автор(ы) книги:</h3>
+        <h3> <spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h3>
+        <h4> <spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
+        <h4> <spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
+        <h4> <spring:message code="label.description"/>${book.description}</h4>
+        <h3> <spring:message code="label.authorsList"/></h3>
     <c:forEach var="author" items="${book.authors}">
         <h3><a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h4> Информация об авторе: ${author.dateBirth}</h4>
+        <h4> <spring:message code="label.authorInfo"/>${author.dateBirth}</h4>
     </c:forEach>
     </c:forEach>
 </div>
 <div class="author">
     <c:forEach var="author" items="${authors}">
-        <h3>Имя Автора: <a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h4>Дата рождения: ${author.dateBirth}</h4>
-        <h3>Книги автора: </h3>
+        <h3><spring:message code="label.fullname"/><a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
+        <h4><spring:message code="label.dateBirth"/>${author.dateBirth}</h4>
+        <h3><spring:message code="label.authorBookList"/></h3>
     <c:forEach var="book" items="${author.books}">
-        <h3>Название: <a href="/book/${book.id}">${book.name}</a></h3>
-        <h4>Издательство: ${book.publishingHouse}</h4>
-        <h4>Дата публикации: ${book.publishingDate}</h4>
-        <h4>Описание: ${book.description}</h4>
+        <h3><spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h3>
+        <h4><spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
+        <h4><spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
+        <h4><spring:message code="label.description"/>${book.description}</h4>
     </c:forEach>
     </c:forEach>
 </div>

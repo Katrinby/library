@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @Controller
@@ -28,7 +27,7 @@ public class AdminController {
 
     @PreAuthorize("hasAnyRole(\"ROLE_ADMIN\")")
     @GetMapping
-    public String getAll(Model model, @AuthenticationPrincipal Authentication auth){
+    public String getAll(Model model, @AuthenticationPrincipal Authentication auth) {
         List<Storage> storages = storageRepository.findAll();
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("storages", storages);
@@ -37,11 +36,9 @@ public class AdminController {
     }
 
     @GetMapping("/storage/{id}")
-    public String getBookById(Model model, @PathVariable Long id){
+    public String getBookById(Model model, @PathVariable Long id) {
         Storage storage = storageRepository.findStorageById(id);
         model.addAttribute("storage", storage);
         return "storage";
     }
-
-
 }

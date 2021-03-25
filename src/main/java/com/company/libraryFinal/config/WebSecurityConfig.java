@@ -89,8 +89,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
             @Override
             public boolean matches(CharSequence charSequence, String s) {
-
-                //return true;
                 return s.equals(charSequence.toString());
             }
         };
