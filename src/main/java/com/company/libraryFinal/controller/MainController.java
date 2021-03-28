@@ -9,6 +9,11 @@ import com.company.libraryFinal.repository.BookRepository;
 import com.company.libraryFinal.repository.BookSeriesRepository;
 import com.company.libraryFinal.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -120,9 +125,13 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Model model) {
-        List<Genre> genres = genreRepository.findAll();
-        model.addAttribute("genres", genres);
+    public String main(Model model,@PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Genre> pages = genreRepository.findAll(pageable);
+        model.addAttribute("number", pages.getNumber());
+        model.addAttribute("totalPages", pages.getTotalPages());
+        model.addAttribute("totalElements", pages.getTotalElements());
+        model.addAttribute("size", 5);
+        model.addAttribute("data",pages.getContent());
         return "main";
     }
 

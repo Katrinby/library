@@ -3,6 +3,10 @@ package com.company.libraryFinal.controller;
 import com.company.libraryFinal.entity.*;
 import com.company.libraryFinal.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -32,13 +36,20 @@ public class BookController {
     private BookSeriesRepository bookSeriesRepository;
 
     @GetMapping("/{bookId}")
-    public String getBookById(Model model, @PathVariable Long bookId, @AuthenticationPrincipal Authentication auth) {
+    public String getBookById(Model model, @PathVariable Long bookId, @AuthenticationPrincipal Authentication auth,
+                              @PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
         Book book = bookRepository.findBookById(bookId);
         model.addAttribute("book", book);
         BookSeries bookSeries = bookSeriesRepository.findBookSeriesByBooks(book);
         model.addAttribute("bookSeries", bookSeries);
-        List<Comment> comments = commentRepository.findAllByBookId(bookId);
-        model.addAttribute("comments", comments);
+
+        Page<Comment> pages = commentRepository.findAllByBookId(bookId, pageable);
+        model.addAttribute("number", pages.getNumber());
+        model.addAttribute("totalPages", pages.getTotalPages());
+        model.addAttribute("totalElements", pages.getTotalElements());
+        model.addAttribute("size", 5);
+        model.addAttribute("data",pages.getContent());
+
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
         markRepository.findAllByBookId(bookId);
@@ -96,14 +107,19 @@ public class BookController {
     }
 
     @GetMapping("/search")
-    public String getBooks(Model model, @RequestParam String name) {
+    public String getBooks(Model model, @RequestParam(defaultValue = "") String name,
+                           @PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Book> pages;
         if (name.isEmpty()) {
-            List<Book> books = bookRepository.findAll();
-            model.addAttribute("books", books);
+            pages = bookRepository.findAll(pageable);
         } else {
-            List<Book> books = bookRepository.findAllByNameContains(name);
-            model.addAttribute("books", books);
+            pages = bookRepository.findAllByNameContains(name, pageable);
         }
+        model.addAttribute("number", pages.getNumber());
+        model.addAttribute("totalPages", pages.getTotalPages());
+        model.addAttribute("totalElements", pages.getTotalElements());
+        model.addAttribute("size", 5);
+        model.addAttribute("data",pages.getContent());
         return "searchResults";
     }
 }

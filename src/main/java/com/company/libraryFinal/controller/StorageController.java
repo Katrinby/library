@@ -49,7 +49,7 @@ public class StorageController {
                 model.addAttribute("genres", genres);
                 genreRepository.save(genre);
             }
-            Genre genre = genreRepository.findGenreByName(storage.getGenre());
+            Genre genre = genreRepository.findGenreByName(storage.getGenre());//todo если Жанра не существует - создавать ли его
             BookSeries bookSeries = bookSeriesRepository.findBookSeriesById(3l);
 
             Book book = new Book();
@@ -58,7 +58,7 @@ public class StorageController {
             book.setDescription(storage.getDescription());
             book.setBookSeries(bookSeries);
             book.setPublishingDate(storage.getYearOfPublishing());
-
+//todo что делать чтобы пользователь не сохранялся каждый раз как новый автор
             Author author = new Author();
             author.setFname(user.getUserInfo().getFname());
             author.setLname(user.getUserInfo().getLname());

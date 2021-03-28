@@ -1,8 +1,13 @@
 package com.company.libraryFinal.controller;
 
 import com.company.libraryFinal.entity.Author;
+import com.company.libraryFinal.entity.Book;
 import com.company.libraryFinal.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,14 +36,19 @@ public class AuthorController {
     }
 
     @GetMapping("/search")
-    public String getAuthors(Model model, @RequestParam String lname) {
+    public String getAuthors(Model model, @RequestParam(defaultValue = "") String lname,
+                             @PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Author> pages;
         if (lname.isEmpty()) {
-            List<Author> authors = authorRepository.findAll();
-            model.addAttribute("authors", authors);
+            pages = authorRepository.findAll(pageable);
         } else {
-            List<Author> authors = authorRepository.findAllByLnameContains(lname);
-            model.addAttribute("authors", authors);
+            pages = authorRepository.findAllByLnameContains(lname, pageable);
         }
+        model.addAttribute("anumber", pages.getNumber());
+        model.addAttribute("atotalPages", pages.getTotalPages());
+        model.addAttribute("atotalElements", pages.getTotalElements());
+        model.addAttribute("asize", 5);
+        model.addAttribute("adata",pages.getContent());
         return "searchResults";
 
     }

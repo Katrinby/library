@@ -297,9 +297,27 @@
 
     <div class="genre">
         <h3><spring:message code="label.genreList"/></h3>
-        <c:forEach var="genre" items="${genres}">
-            <h3><a href="/genre/${genre.id}">${genre.name}</a></h3>
-        </c:forEach>
+
+
+        <c:choose>
+            <c:when test="${data.size() > 0 }">
+                <c:forEach var="genre" items="${data}">
+                    <h3><a href="/genre/${genre.id}">${genre.name}</a></h3>
+                </c:forEach>
+            </c:when>
+        </c:choose>
+
+        <c:if test="${data.size() > 0 }">
+            <div class="panel-footer">
+                <ul class="pagination">
+                    <c:forEach begin="0" end="${totalPages-1}" var="page">
+                            <a href="main?page=${page}&size=${size}" class="page-link">${page+1}</a>
+                    </c:forEach>
+                </ul>
+            </div>
+        </c:if>
+
+
         <sec:authorize access="hasRole('ROLE_ADMIN')">
             <h3><spring:message code="label.addGenre"/></h3>
             <form method="post" enctype="multipart/form-data" action="/main/addGenre">

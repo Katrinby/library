@@ -84,7 +84,7 @@
 </style>
 <body>
 <div class="header">
-    <h1>Результаты поиска</h1>
+    <h1><spring:message code="label.searchResults"/></h1>
     <div class="dropdown">
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="?lang=en">
@@ -105,30 +105,58 @@
 </div>
 <div class="content">
 <div class="book">
-    <c:forEach var="book" items="${books}">
-        <h3> <spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h3>
-        <h4> <spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
-        <h4> <spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
-        <h4> <spring:message code="label.description"/>${book.description}</h4>
-        <h3> <spring:message code="label.authorsList"/></h3>
-    <c:forEach var="author" items="${book.authors}">
-        <h3><a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
-        <h4> <spring:message code="label.authorInfo"/>${author.dateBirth}</h4>
-    </c:forEach>
-    </c:forEach>
+
+    <c:choose>
+        <c:when test="${data.size() > 0 }">
+            <c:forEach var="book" items="${data}">
+                <div style="border-style: double none; border-width: 5px;
+        border-color: darkcyan;
+        border-radius: 10px;">
+                    <h3> <spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h3>
+                    <h4> <spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
+                    <h4> <spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
+                    <h4> <spring:message code="label.description"/>${book.description}</h4>
+                </div>
+            </c:forEach>
+        </c:when>
+    </c:choose>
+    <c:if test="${data.size() > 0 }">
+        <div class="panel-footer">
+            <ul class="pagination">
+                <c:forEach begin="0" end="${totalPages-1}" var="page">
+                    <a href="/book/search?page=${page}&size=5" class="page-link">${page+1}</a>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+
+
 </div>
+
 <div class="author">
-    <c:forEach var="author" items="${authors}">
+    <c:choose>
+    <c:when test="${adata.size() > 0 }">
+    <c:forEach var="author" items="${adata}" >
+        <div style="border-style: double none; border-width: 5px;
+        border-color: darkcyan;
+        border-radius: 10px;">
         <h3><spring:message code="label.fullname"/><a href="/author/${author.id}">${author.fname} ${author.lname}</a></h3>
         <h4><spring:message code="label.dateBirth"/>${author.dateBirth}</h4>
-        <h3><spring:message code="label.authorBookList"/></h3>
-    <c:forEach var="book" items="${author.books}">
-        <h3><spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h3>
-        <h4><spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
-        <h4><spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
-        <h4><spring:message code="label.description"/>${book.description}</h4>
+        </div>
     </c:forEach>
-    </c:forEach>
+    </c:when>
+    </c:choose>
+
+    <c:if test="${adata.size() > 0 }">
+        <div class="panel-footer">
+            <ul class="pagination">
+                <c:forEach begin="0" end="${atotalPages-1}" var="page">
+                    <a href="/author/search?page=${page}&size=5" class="page-link">${page+1}</a>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+
 </div>
 </div>
 </body>

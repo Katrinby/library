@@ -106,12 +106,31 @@
 
 <div class="content">
     <h3><spring:message code="label.listBooks"/></h3>
-    <c:forEach var="book" items="${genre.books}">
+
+    <c:choose>
+    <c:when test="${data.size() > 0 }">
+    <c:forEach var="book" items="${data}">
+    <div style="border-style: double none; border-width: 5px;
+        border-color: darkcyan;
+        border-radius: 10px;">
         <h4><spring:message code="label.bookName"/><a href="/book/${book.id}">${book.name}</a></h4>
         <h4><spring:message code="label.publishingHouse"/>${book.publishingHouse}</h4>
         <h4><spring:message code="label.publishingDate"/>${book.publishingDate}</h4>
         <h4><spring:message code="label.description"/>${book.description}></h4>
+    </div>
     </c:forEach>
+    </c:when>
+    </c:choose>
+    <c:if test="${data.size() > 0 }">
+        <div class="panel-footer">
+            <ul class="pagination">
+                <c:forEach begin="0" end="${totalPages-1}" var="page">
+                    <a href="/genre/${genre.id}?page=${page}&size=5" class="page-link">${page+1}</a>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+
 </div>
 </body>
 </html>

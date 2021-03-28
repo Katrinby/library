@@ -145,12 +145,27 @@
             <h1>${avg}</h1>
         </form>
     </div>
+
     <h3><spring:message code="label.comments"/></h3>
-        <c:forEach var="comment" items="${comments}">
+    <c:choose>
+    <c:when test="${data.size() > 0 }">
+        <c:forEach var="comment" items="${data}">
     <div class="comment">
         <h2>${user.username} : </h2><h3>${comment.text}</h3>
     </div>
         </c:forEach>
+    </c:when>
+    </c:choose>
+    <c:if test="${data.size() > 0 }">
+        <div class="panel-footer">
+            <ul class="pagination">
+                <c:forEach begin="0" end="${totalPages-1}" var="page">
+                    <a href="/book/${book.id}?page=${page}&size=5" class="page-link">${page+1}</a>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
+
     <div>
         <form method="get" enctype="multipart/form-data" action="/book/${book.id}/addComment">
             <input type="text" class="form-control" name="text" placeholder="<spring:message code="label.addComment"/>" style="width: 600px; height: 45px"/>
