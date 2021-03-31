@@ -2,9 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%--Как передавать данные пользователя в виде параметров на страницы кабинетов? --%>
-<%--Кнопки добавления книг, авторов и жанров для админа--%>
-<%--Кнопки оформить как кнопки, а не как ссылки--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -316,7 +313,6 @@
                 </ul>
             </div>
         </c:if>
-
 
         <sec:authorize access="hasRole('ROLE_ADMIN')">
             <h3><spring:message code="label.addGenre"/></h3>

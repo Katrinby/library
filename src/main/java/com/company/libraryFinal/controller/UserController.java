@@ -43,7 +43,6 @@ public class UserController {
                           @RequestParam String genre, Map<String, Object> model) throws ParseException {
 
         if (!storageRepository.existsStorageByName(name)) {
-//todo что делать если добавляемого жанра не существует
             SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
             Date date = formatter.parse(publishingDate);
             User user = userRepository.findByUsername(auth.getName());
@@ -53,7 +52,7 @@ public class UserController {
             Iterable<Storage> storages = storageRepository.findAll();
             model.put("storages", storages);
         }
-        return "redirect:/user"/*"userCabinet"*/;
+        return "redirect:/user";
     }
 
     @GetMapping("/storage/{id}")

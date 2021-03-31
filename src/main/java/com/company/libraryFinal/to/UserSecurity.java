@@ -86,6 +86,5 @@ public  class UserSecurity implements UserDetails {
                 user.isActive(),
                 user.getRoles()
         );
-
     }
 }

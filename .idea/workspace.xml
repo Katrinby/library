@@ -33,34 +33,13 @@
       <change beforePath="$PROJECT_DIR$/../lesson_1/src/lesson_1.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_1/src/lesson_2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/GenreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/GenreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/StorageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/GenreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/repository/GenreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/web/jsp/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web/jsp/book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/web/jsp/genre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web/jsp/genre.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/web/jsp/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web/jsp/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/web/jsp/searchResults.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web/jsp/searchResults.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/AuthorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/AuthorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/GenreController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/GenreController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/StorageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/controller/StorageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/AuthorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/AuthorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/BookRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/CommentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/CommentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/GenreRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/libraryFinal/repository/GenreRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages_ru.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +200,10 @@
       <workItem from="1616865554205" duration="7067000" />
       <workItem from="1616946711641" duration="3004000" />
       <workItem from="1616949833248" duration="154000" />
-      <workItem from="1616950164104" duration="2654000" />
+      <workItem from="1616950164104" duration="3085000" />
+      <workItem from="1617028508406" duration="1975000" />
+      <workItem from="1617038781519" duration="1578000" />
+      <workItem from="1617118698646" duration="915000" />
     </task>
     <servers />
   </component>
@@ -273,54 +255,54 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state x="686" y="207" key="FileChooserDialogImpl/0.0.1920.1030@0.0.1920.1030" timestamp="1615139691529" />
-    <state width="1864" height="316" key="GridCell.Tab.0.bottom" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.0.bottom" timestamp="1617120098312">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.0.center" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098312" />
+    <state width="1864" height="3" key="GridCell.Tab.0.center" timestamp="1617120098312">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.0.left" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098312" />
+    <state width="1864" height="3" key="GridCell.Tab.0.left" timestamp="1617120098312">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.0.right" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098312" />
+    <state width="1864" height="3" key="GridCell.Tab.0.right" timestamp="1617120098312">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.1.bottom" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098312" />
+    <state width="1864" height="3" key="GridCell.Tab.1.bottom" timestamp="1617120098313">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.1.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.1.center" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.1.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098313" />
+    <state width="1864" height="3" key="GridCell.Tab.1.center" timestamp="1617120098313">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.1.center/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.1.left" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.1.center/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098313" />
+    <state width="1864" height="3" key="GridCell.Tab.1.left" timestamp="1617120098312">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.1.left/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.1.right" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.1.left/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098312" />
+    <state width="1864" height="3" key="GridCell.Tab.1.right" timestamp="1617120098313">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.1.right/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.2.bottom" timestamp="1616952564812">
+    <state width="1864" height="3" key="GridCell.Tab.1.right/0.0.1920.1030@0.0.1920.1030" timestamp="1617120098313" />
+    <state width="1864" height="316" key="GridCell.Tab.2.bottom" timestamp="1616953287972">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.2.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.2.center" timestamp="1616952564812">
+    <state width="1864" height="316" key="GridCell.Tab.2.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1616953287972" />
+    <state width="1864" height="316" key="GridCell.Tab.2.center" timestamp="1616953287972">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.2.center/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.2.left" timestamp="1616952564812">
+    <state width="1864" height="316" key="GridCell.Tab.2.center/0.0.1920.1030@0.0.1920.1030" timestamp="1616953287972" />
+    <state width="1864" height="316" key="GridCell.Tab.2.left" timestamp="1616953287972">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.2.left/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
-    <state width="1864" height="316" key="GridCell.Tab.2.right" timestamp="1616952564812">
+    <state width="1864" height="316" key="GridCell.Tab.2.left/0.0.1920.1030@0.0.1920.1030" timestamp="1616953287972" />
+    <state width="1864" height="316" key="GridCell.Tab.2.right" timestamp="1616953287972">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="316" key="GridCell.Tab.2.right/0.0.1920.1030@0.0.1920.1030" timestamp="1616952564812" />
+    <state width="1864" height="316" key="GridCell.Tab.2.right/0.0.1920.1030@0.0.1920.1030" timestamp="1616953287972" />
     <state x="343" y="54" key="SettingsEditor" timestamp="1615140999163">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
@@ -329,10 +311,10 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state width="969" height="524" key="XDebugger.FullValuePopup/0.0.1920.1030@0.0.1920.1030" timestamp="1614797761462" />
-    <state x="91" y="91" width="1738" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616952530437">
+    <state x="91" y="91" width="1738" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616953246703">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state x="91" y="91" width="1738" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1616952530437" />
+    <state x="91" y="91" width="1738" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1030@0.0.1920.1030" timestamp="1616953246703" />
     <state x="675" y="276" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1611332185007">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>

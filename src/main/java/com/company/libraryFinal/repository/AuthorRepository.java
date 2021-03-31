@@ -17,6 +17,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     Page<Author> findAll(Pageable pageable);
 
     Author findAuthorById(Long Id);
+    Author findFirstByFnameAndLname(String fname, String lname);
 
     boolean existsAuthorByLname(String lname);
     boolean existsAuthorByLnameAndFname(String lname, String fname);

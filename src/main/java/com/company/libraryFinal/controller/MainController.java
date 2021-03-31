@@ -125,7 +125,8 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Model model,@PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+    public String main(Model model,
+                       @PageableDefault(size = 5, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
         Page<Genre> pages = genreRepository.findAll(pageable);
         model.addAttribute("number", pages.getNumber());
         model.addAttribute("totalPages", pages.getTotalPages());
@@ -136,7 +137,7 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String filterByAuthor(/*@RequestParam String filterByAuthor, Map<String, Object> model*/) {
+    public String filterByAuthor() {
         return "main";
     }
 

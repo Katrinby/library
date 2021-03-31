@@ -49,7 +49,7 @@ public class StorageController {
                 model.addAttribute("genres", genres);
                 genreRepository.save(genre);
             }
-            Genre genre = genreRepository.findGenreByName(storage.getGenre());//todo если Жанра не существует - создавать ли его
+            Genre genre = genreRepository.findGenreByName(storage.getGenre());
             BookSeries bookSeries = bookSeriesRepository.findBookSeriesById(3l);
 
             Book book = new Book();
@@ -58,14 +58,16 @@ public class StorageController {
             book.setDescription(storage.getDescription());
             book.setBookSeries(bookSeries);
             book.setPublishingDate(storage.getYearOfPublishing());
-//todo что делать чтобы пользователь не сохранялся каждый раз как новый автор
             Author author = new Author();
+            if (!authorRepository.existsAuthorByLnameAndFname(user.getUserInfo().getLname(),user.getUserInfo().getFname())) {
             author.setFname(user.getUserInfo().getFname());
             author.setLname(user.getUserInfo().getLname());
             author.setDateBirth(user.getUserInfo().getDateBirth());
             author.setBooks(Collections.singletonList(book));
             book.setAuthors(Collections.singletonList(author));
-
+            } else {
+                author = authorRepository.findFirstByFnameAndLname(user.getUserInfo().getFname(), user.getUserInfo().getLname());
+            }
             bookSeriesRepository.save(bookSeries);
             authorRepository.save(author);
             bookRepository.save(book);
