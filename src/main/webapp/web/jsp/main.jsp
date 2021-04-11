@@ -268,7 +268,7 @@
                            placeholder="<spring:message code="label.publishingHouse"/>"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="publishingDate"
+                    <input type="date" class="form-control" name="publishingDate"
                            placeholder="<spring:message code="label.publishingDate"/>"/>
                 </div>
                 <div class="form-group">

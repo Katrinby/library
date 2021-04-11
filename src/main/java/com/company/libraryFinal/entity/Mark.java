@@ -2,7 +2,7 @@ package com.company.libraryFinal.entity;
 
 import javax.persistence.*;
 
-@Entity//сделать enum
+@Entity
 @Table(name = "mark")
 public class Mark {
 

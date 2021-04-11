@@ -123,7 +123,6 @@
 </style>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="internationalization.js"></script>
 <div class="header">
     <h1><spring:message code="label.registration"/></h1>
     <div>

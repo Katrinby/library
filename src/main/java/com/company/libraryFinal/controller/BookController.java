@@ -48,7 +48,7 @@ public class BookController {
         model.addAttribute("totalPages", pages.getTotalPages());
         model.addAttribute("totalElements", pages.getTotalElements());
         model.addAttribute("size", 5);
-        model.addAttribute("data",pages.getContent());
+        model.addAttribute("data", pages.getContent());
 
         User user = userRepository.findByUsername(auth.getName());
         model.addAttribute("user", user);
@@ -77,17 +77,14 @@ public class BookController {
                              @PathVariable Long bookId) {
         Book book = bookRepository.findBookById(bookId);
         User user = userRepository.findByUsername(auth.getName());
+        Mark mark = null;
         if (!markRepository.existsMarkByUserAndBook(user, book)) {
-            Mark mark = new Mark(number);
+            mark = new Mark(number);
             mark.setBook(book);
             mark.setUser(user);
-            userRepository.save(user);
-            markRepository.save(mark);
-            Iterable<Mark> marks = markRepository.findAll();
-            model.addAttribute("marks", marks);
-            markRepository.save(mark);
+        } else {
+            mark = markRepository.findMarkByUserAndBook(user, book);
         }
-        Mark mark = markRepository.findMarkByUserAndBook(user, book);
         mark.setMark(number);
         markRepository.save(mark);
         Iterable<Mark> marks = markRepository.findAll();
@@ -119,7 +116,7 @@ public class BookController {
         model.addAttribute("totalPages", pages.getTotalPages());
         model.addAttribute("totalElements", pages.getTotalElements());
         model.addAttribute("size", 5);
-        model.addAttribute("data",pages.getContent());
+        model.addAttribute("data", pages.getContent());
         return "searchResults";
     }
 }

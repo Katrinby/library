@@ -99,7 +99,7 @@ public class MainController {
             Iterable<Book> books = bookRepository.findAll();
             model.put("books", books);
         }
-        return "main";
+        return "redirect:/main";
     }
 
     @PostMapping("main/addAuthor")
@@ -110,7 +110,7 @@ public class MainController {
             Iterable<Author> authors = authorRepository.findAll();
             model.put("authors", authors);
         }
-        return "main";
+        return "redirect:/main";
     }
 
     @PostMapping("main/addGenre")
@@ -121,7 +121,7 @@ public class MainController {
             Iterable<Genre> genres = genreRepository.findAll();
             model.put("genres", genres);
         }
-        return "main";
+        return "redirect:/main";
     }
 
     @GetMapping("/main")
