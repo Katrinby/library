@@ -33,7 +33,7 @@
       <change beforePath="$PROJECT_DIR$/../lesson_1/src/lesson_1.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_1/src/lesson_2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/libraryFinal/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/web/jsp/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/web/jsp/book.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +200,7 @@
       <workItem from="1617118698646" duration="915000" />
       <workItem from="1617211352953" duration="352000" />
       <workItem from="1618152658657" duration="2494000" />
-      <workItem from="1618221274837" duration="328000" />
+      <workItem from="1618221274837" duration="2085000" />
     </task>
     <servers />
   </component>
@@ -252,38 +252,38 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state x="686" y="207" key="FileChooserDialogImpl/0.0.1920.1030@0.0.1920.1030" timestamp="1615139691529" />
-    <state width="1864" height="152" key="GridCell.Tab.0.bottom" timestamp="1618155191286">
+    <state width="1864" height="185" key="GridCell.Tab.0.bottom" timestamp="1618222618107">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191286" />
-    <state width="1864" height="152" key="GridCell.Tab.0.center" timestamp="1618155191285">
+    <state width="1864" height="185" key="GridCell.Tab.0.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618107" />
+    <state width="1864" height="185" key="GridCell.Tab.0.center" timestamp="1618222618107">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191285" />
-    <state width="1864" height="152" key="GridCell.Tab.0.left" timestamp="1618155191285">
+    <state width="1864" height="185" key="GridCell.Tab.0.center/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618107" />
+    <state width="1864" height="185" key="GridCell.Tab.0.left" timestamp="1618222618107">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191285" />
-    <state width="1864" height="152" key="GridCell.Tab.0.right" timestamp="1618155191286">
+    <state width="1864" height="185" key="GridCell.Tab.0.left/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618107" />
+    <state width="1864" height="185" key="GridCell.Tab.0.right" timestamp="1618222618107">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191286" />
-    <state width="1864" height="152" key="GridCell.Tab.1.bottom" timestamp="1618155191287">
+    <state width="1864" height="185" key="GridCell.Tab.0.right/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618107" />
+    <state width="1864" height="185" key="GridCell.Tab.1.bottom" timestamp="1618222618108">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.1.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191287" />
-    <state width="1864" height="152" key="GridCell.Tab.1.center" timestamp="1618155191286">
+    <state width="1864" height="185" key="GridCell.Tab.1.bottom/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618108" />
+    <state width="1864" height="185" key="GridCell.Tab.1.center" timestamp="1618222618108">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.1.center/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191286" />
-    <state width="1864" height="152" key="GridCell.Tab.1.left" timestamp="1618155191286">
+    <state width="1864" height="185" key="GridCell.Tab.1.center/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618108" />
+    <state width="1864" height="185" key="GridCell.Tab.1.left" timestamp="1618222618107">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.1.left/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191286" />
-    <state width="1864" height="152" key="GridCell.Tab.1.right" timestamp="1618155191286">
+    <state width="1864" height="185" key="GridCell.Tab.1.left/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618107" />
+    <state width="1864" height="185" key="GridCell.Tab.1.right" timestamp="1618222618108">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
-    <state width="1864" height="152" key="GridCell.Tab.1.right/0.0.1920.1030@0.0.1920.1030" timestamp="1618155191286" />
+    <state width="1864" height="185" key="GridCell.Tab.1.right/0.0.1920.1030@0.0.1920.1030" timestamp="1618222618108" />
     <state width="1864" height="152" key="GridCell.Tab.2.bottom" timestamp="1618155191288">
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
@@ -340,6 +340,16 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/web/jsp/read.jsp</url>
           <line>8</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/web/jsp/main.jsp</url>
+          <line>237</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/web/jsp/book.jsp</url>
+          <line>153</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

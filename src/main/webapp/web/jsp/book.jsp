@@ -151,7 +151,7 @@
     <c:when test="${data.size() > 0 }">
         <c:forEach var="comment" items="${data}">
     <div class="comment">
-        <h2>${user.username} : </h2><h3>${comment.text}</h3>
+        <h2>${comment.user.username} : </h2><h3>${comment.text}</h3>
     </div>
         </c:forEach>
     </c:when>
