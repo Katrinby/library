@@ -103,9 +103,13 @@ public class MainController {
     }
 
     @PostMapping("main/addAuthor")
-    public String addAuthor(@RequestParam String fname, @RequestParam String lname, Map<String, Object> model) {
+    public String addAuthor(@RequestParam String fname, @RequestParam String lname, @RequestParam String dateBirth,
+                            Map<String, Object> model) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = formatter.parse(dateBirth);
         if (!authorRepository.existsAuthorByLname(lname)) {
             Author author = new Author(lname, fname);
+            author.setDateBirth(date);
             authorRepository.save(author);
             Iterable<Author> authors = authorRepository.findAll();
             model.put("authors", authors);

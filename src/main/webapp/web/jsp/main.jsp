@@ -236,6 +236,10 @@
                                placeholder="<spring:message code="label.enterAuthorLname"/>"/>
                     </div>
                     <div class="form-group">
+                        <input type="date" class="form-control" name="dateBirth"
+                               placeholder="<spring:message code="label.enterAuthorBirth"/>"/>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="button"><spring:message code="label.add"/></button>
                     </div>
                 </form>
