@@ -284,6 +284,10 @@
                            placeholder="<spring:message code="label.bookSeriesName"/>"/>
                 </div>
                 <div class="form-group">
+                    <input type="text" class="form-control" name="bookSeriesDescription"
+                           placeholder="<spring:message code="label.bookSeriesDescription"/>"/>
+                </div>
+                <div class="form-group">
                     <input type="text" class="form-control" name="genre"
                            placeholder="<spring:message code="label.genre"/>"/>
                 </div>

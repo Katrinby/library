@@ -45,13 +45,14 @@ public class MainController {
     @PostMapping("main/addBook")
     public String addBook(@RequestParam String name, @RequestParam String lname, @RequestParam String publishingHouse,
                           @RequestParam String publishingDate,
-                          @RequestParam String description, @RequestParam String bookSeriesName,
+                          @RequestParam String description, @RequestParam String bookSeriesName, @RequestParam String bookSeriesDescription,
                           @RequestParam String genre, Map<String, Object> model) throws ParseException {
 
         if (!bookRepository.existsBookByName(name)) {
 
             if (!bookSeriesRepository.existsBookSeriesByName(bookSeriesName)) {
                 BookSeries bookSeries = new BookSeries(bookSeriesName);
+                bookSeries.setDescription(bookSeriesDescription);
                 bookSeriesRepository.save(bookSeries);
             }
 

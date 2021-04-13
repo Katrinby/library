@@ -11,9 +11,6 @@ public class Storage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@JoinColumn
-    //private User user;
-
     @ManyToOne(targetEntity = User.class)
     private User user;
 
@@ -25,7 +22,6 @@ public class Storage {
 
     private String genre;
 
-   /* @Enumerated(value = EnumType.STRING)*/
     private boolean status;
 
     public Storage() {
