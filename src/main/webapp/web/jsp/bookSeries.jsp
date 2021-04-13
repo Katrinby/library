@@ -105,8 +105,12 @@
 </div>
 <div class="content">
     <c:forEach var="book" items="${bookSeries.books}">
+        <div style="border-style: double none; border-width: 5px;
+        border-color: darkcyan;
+        border-radius: 10px;">
         <h3><spring:message code="label.bookName"/> <a href="/book/${book.id}">${book.name}</a></h3>
         <h3><spring:message code="label.description"/>${book.description}</h3>
+        </div>
     </c:forEach>
 </div>
 </body>
